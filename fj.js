@@ -106,3 +106,30 @@
     var sf=b.closest('.sf');[].forEach.call(sf.querySelectorAll('.sf-seg button'),function(x){x.classList.toggle('on',x===b)});
     [].forEach.call(sf.querySelectorAll('.sf-v'),function(v){v.hidden=v.dataset.v!==b.dataset.v})});
 })();
+
+/* Mouse wheel over a screen strip scrolls it sideways. At either end the wheel goes back to the page. */
+(function(){
+  var d=document,st=new WeakMap(),calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  d.addEventListener('wheel',function(e){
+    if(e.ctrlKey||e.defaultPrevented)return;
+    var el=e.target.closest&&e.target.closest('.strip');if(!el)return;
+    var max=el.scrollWidth-el.clientWidth;if(max<=2)return;
+    var dy=e.deltaY;if(Math.abs(e.deltaX)>=Math.abs(dy))return;
+    if(e.deltaMode===1)dy*=16;else if(e.deltaMode===2)dy*=el.clientWidth;
+    var s=st.get(el);if(!s){s={t:0,raf:0,timer:0};st.set(el,s)}
+    if(!s.raf)s.t=el.scrollLeft;
+    if(!s.raf&&((dy<0&&el.scrollLeft<=0)||(dy>0&&el.scrollLeft>=max-1)))return;
+    e.preventDefault();
+    s.t=Math.max(0,Math.min(max,s.t+dy));
+    el.style.scrollSnapType='none';
+    clearTimeout(s.timer);s.timer=setTimeout(function(){el.style.scrollSnapType=''},200);
+    if(calm){el.scrollLeft=s.t;return}
+    if(s.raf)return;
+    (function tick(){
+      var diff=s.t-el.scrollLeft;
+      if(Math.abs(diff)<1){el.scrollLeft=s.t;s.raf=0;return}
+      var step=diff*0.2;if(Math.abs(step)<1)step=diff>0?1:-1;
+      el.scrollLeft+=step;s.raf=requestAnimationFrame(tick);
+    })();
+  },{passive:false});
+})();
