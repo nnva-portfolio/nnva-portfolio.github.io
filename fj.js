@@ -93,7 +93,7 @@
   var hash='<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 1v10M9 1v10M1 3h10M1 9h10"/></svg>';
   [].forEach.call(d.querySelectorAll('.layers,.goals,.tablebox,.bars'),function(b){
     var sec=b.closest('section');if(!sec)return;var a=d.querySelector('nav.toc .toc-list a[href="#'+sec.id+'"]');
-    b.parentNode.insertBefore(el('<p class="fj-fname">'+hash+(a?a.textContent:sec.id)+'</p>'),b)});
+    b.parentNode.insertBefore(el('<p class="fj-fname">'+hash+(b.dataset.fname||(a?a.textContent:sec.id))+'</p>'),b)});
 
   /* before / after toggles */
   [].forEach.call(d.querySelectorAll('.ba'),function(ba){
