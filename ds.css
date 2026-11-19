@@ -1,0 +1,147 @@
+/* =====================================================================
+   ds.css · Van Anh portfolio design system (single source of truth)
+   Loaded LAST on every case study (linkadz, yumzy, designathon; EN + VI).
+   Tokens come from Home (index.html). Layout rules come from the LinkAdz case study.
+   Rules are written up in "claude/design-system-rules.md" in the project.
+   ===================================================================== */
+
+/* ---------- 1. TOKENS (Home is the source of truth) ---------- */
+:root{
+  /* ink + surfaces: neutral zinc, no blue tint */
+  --ink:#18181b; --ink2:#3f3f46; --muted:#66666f; --line:#e7e7ea;
+  --card:#ffffff; --card-line:#e7e7ea;
+  /* pastel (big blocks) + ink-of-that-colour (labels, chips, accents) */
+  --p-blue:#e9effc;   --i-blue:#2f5bdc;
+  --p-pink:#fde9f0;   --i-pink:#d6337a;
+  --p-peach:#fff3e6;  --i-peach:#b5560f;
+  --p-mint:#e4f4e8;   --i-mint:#1f8a4c;
+  --p-violet:#f1ecff; --i-violet:#6a45e0;
+  /* layout widths */
+  --w-text:480px;     /* running text */
+  --w-block:600px;    /* pastel blocks, tables, KPI rows */
+  --w-fig:880px;      /* screenshots, photos, video */
+  --w-diagram:1180px; /* flow diagrams */
+}
+:root[data-theme="dark"]{
+  --ink:#f3f3f6; --ink2:#d2d2da; --muted:#a1a1ad; --line:#2f2f37;
+  --card:#232329; --card-line:#2f2f37;
+  --p-blue:#1a2238;   --i-blue:#9bb3ff;
+  --p-pink:#2c1a24;   --i-pink:#ff94c4;
+  --p-peach:#2c2117;  --i-peach:#ffb47c;
+  --p-mint:#16271d;   --i-mint:#7fdca6;
+  --p-violet:#221c33; --i-violet:#bca8ff;
+}
+
+/* ---------- 2. SECTION COLOUR ----------
+   Default pastel = the case's own colour on Home (LinkAdz blue, YUMZY violet, Designathon peach).
+   A section can borrow the colour of its role:
+   pink = the problem · mint = users and what already exists · violet = outcome and lessons */
+body[data-cs="violet"]{--c:var(--p-violet);--c2:var(--p-violet-2);--ci:var(--i-violet)}
+body[data-cs="peach"]{--c:var(--p-peach);--c2:var(--p-peach-2);--ci:var(--i-peach)}
+#problem,#brief{--c:var(--p-pink);--c2:var(--p-pink-2);--ci:var(--i-pink)}
+#discover,#users,#compete{--c:var(--p-mint);--c2:var(--p-mint-2);--ci:var(--i-mint)}
+#result,#lessons,#pitch{--c:var(--p-violet);--c2:var(--p-violet-2);--ci:var(--i-violet)}
+
+/* ---------- 3. TEXT BLOCKS ---------- */
+/* .layers.rich = cards with a heading plus a paragraph or list (YUMZY, Designathon); plain .layers is the LinkAdz look */
+.layers.rich .layer>p:not(.kicker):not(.who):not(.q){margin:0;font-size:14.5px;line-height:1.55}
+.layers.rich .layer ul{margin:10px 0 0;padding-left:18px}
+.layers.rich .layer li{font-size:14.5px;line-height:1.55;margin:4px 0}
+.layers.rich .layer .q{font-style:italic;color:var(--muted);font-size:14.5px;line-height:1.55;margin:12px 0 0}
+.layers.rich .layer p.who{font-size:13.5px;color:var(--muted);margin:-4px 0 10px}
+/* inside the 600 px block: .layers always stacks (reading order); .goals is a 2-column grid of short facts,
+   and three items stack too, so no card is ever squeezed into a third of the block */
+.layers,.layers.one,.layers.two,.layers.three{grid-template-columns:1fr}
+.goals.three{grid-template-columns:1fr}
+/* sub-block head: kicker, one h3, one paragraph (UI screens, exhibition) */
+.bh{padding:0 0 4px;margin-top:64px}
+.bh .kicker{margin:0 0 10px}
+.bh h3{margin-top:0}
+.bh p:last-child{margin:0}
+.bh+.shot,.bh+.shots{margin-top:28px}
+
+/* captions: one style for every figure */
+figcaption{font-size:12px;color:var(--muted);text-align:center;margin:10px 4px 0}
+.shots figcaption b,.tvcrow figcaption b{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.shot video{display:block;width:100%;height:auto;border-radius:16px;background:#000}
+
+/* ---------- 4. FIGURES ----------
+   Every image or clip sits in .shot > .frame (white card, zoom on click) with a caption.
+   .shots is a grid of .shot for sets of images; it is as wide as a single figure. */
+.shots{--yw:min(var(--w-fig),calc(100vw - 48px));width:var(--yw);margin:36px 0 36px calc((100% - var(--yw))/2) !important;display:grid;gap:24px 20px;align-items:start}
+.shots>.shot{margin:0 !important;width:auto !important;max-width:none !important;min-width:0;--fig:100%;--figw:100%}
+.shots .frame img{display:block;width:100%;height:auto}
+.shots.c2{grid-template-columns:1fr 1fr}
+.shots.c3{grid-template-columns:repeat(3,1fr)}
+.shots.c5{grid-template-columns:repeat(5,1fr);gap:24px 14px}
+.shots.c5 figcaption{font-size:12px}
+.shots .full{grid-column:1/-1}
+.shots .r43 .frame img{aspect-ratio:4/3;object-fit:cover}
+.shots .r32 .frame img{aspect-ratio:3/2;object-fit:cover}
+.shots .r67 .frame img{aspect-ratio:6/7;object-fit:cover}
+.shots.side{grid-template-columns:1fr 1.84fr}
+@media(max-width:860px){
+  .shots.c3{grid-template-columns:1fr 1fr}.shots.c3>.shot:first-child{grid-column:1/-1}
+  .shots.c5{grid-template-columns:repeat(3,1fr)}
+  .shots.side{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .shots.c2{grid-template-columns:1fr}
+  .shots.c5{grid-template-columns:1fr 1fr}
+  .shots.c5>.shot:last-child:nth-child(odd){grid-column:1/-1;width:50% !important;justify-self:center}
+}
+
+/* link card (jump to another part of the page) */
+.tvcrow{--yw:min(var(--w-fig),calc(100vw - 48px));width:var(--yw);margin:36px 0 0 calc((100% - var(--yw))/2) !important;display:flex;align-items:center;gap:22px;border-radius:18px;background:var(--card);border:1px solid var(--card-line);padding:14px 22px 14px 14px;text-decoration:none;color:inherit}
+.tvcrow img{width:220px;height:auto;border-radius:12px;display:block;flex:none}
+.tvcrow b{display:block;font-size:17px;margin-bottom:4px}
+.tvcrow span{font-size:14.5px;color:var(--ink2);line-height:1.55}
+.tvcrow em{font:500 12px/1 var(--font-mono);letter-spacing:.06em;color:var(--i-blue);font-style:normal;margin-left:auto;white-space:nowrap}
+@media(max-width:860px){.tvcrow{flex-direction:column;align-items:flex-start}.tvcrow img{width:100%}.tvcrow em{margin:0}}
+
+/* phone frame for a portrait screen recording */
+.pv{width:min(290px,calc(100% - 40px));margin:28px auto 0}
+.pv .protov{padding:9px;background:#0b0d0a;border-radius:44px;box-shadow:0 0 0 1.5px #3a3d38,0 30px 60px -28px rgba(15,48,31,.55)}
+.pv video{display:block;width:100%;height:auto;aspect-ratio:564/1246;border-radius:34px;background:#000;cursor:pointer}
+
+/* ---------- 5. TABLES ----------
+   A table never scrolls sideways: it becomes tabs (pick a row) over stacked cards. (see combo.css / figjam.css) */
+
+/* ---------- 6. PERSONA: a white sticker inside a pastel block ---------- */
+.layer.per{padding:18px 20px 20px}
+.per .ph{border-radius:12px;overflow:hidden;aspect-ratio:16/9;margin-bottom:16px}
+.per .ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:30% 40%}
+.per h3{margin:0 0 10px;font-size:20px;line-height:1.15}
+.per .chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;padding:0;list-style:none}
+.per .chips li{margin:0;font:500 12px/1 var(--font-mono);padding:7px 11px;border-radius:999px;background:color-mix(in srgb,var(--ink) 7%,transparent);color:var(--ink)}
+.per .lab{font:500 10.5px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.per .who p.t{margin:0;font-size:14.5px;line-height:1.6}
+.per .notes{display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px}
+.per .note{border-radius:12px;padding:12px 14px 14px;background:var(--nc);--nc:var(--p-blue);--ni:var(--i-blue)}
+.per .note.pn{--nc:var(--p-pink);--ni:var(--i-pink)}
+.per .note.gl{--nc:var(--p-mint);--ni:var(--i-mint)}
+.per .note .lab{color:var(--ni);margin-bottom:4px}
+.per .note p:not(.lab){margin:0;font-size:14px;line-height:1.55}
+
+/* ---------- 7. BRAND SWATCHES (the product's own colours are content, so they are literal) ---------- */
+.sw2{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.sw2 div{border-radius:16px;padding:56px 14px 14px;font-size:13px;line-height:1.45;display:flex;flex-direction:column;min-height:140px}
+.sw2 b{display:block;font-size:14px}
+.sw2 code{font-family:var(--font-mono);font-size:11.5px;opacity:.85;margin-top:auto;padding-top:6px}
+.sw2 .g{background:#0E4E3D;color:#fff}
+.sw2 .y{background:#FFB63C;color:#0B0D0A}
+.sw2 .w{background:#fff;color:#0B0D0A;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.sw2 .n{background:#0B0D0A;color:#fff}
+@media(max-width:560px){.sw2{grid-template-columns:1fr 1fr}}
+
+/* ---------- 8. DIAGRAM KIT (shared by all case studies) ---------- */
+.fx .lg.n-start-b{fill:var(--card);stroke:var(--fx-edge);stroke-dasharray:3 2}
+
+/* ---------- 9. HERO + SMALL PARTS ---------- */
+/* hero sub: one punchy line, then a smaller detail line */
+.hero .sub .more{display:block;margin-top:18px;font-size:.78em}
+/* block head above a video (inside the figure) */
+.fh{padding:0 0 28px}
+.fh h3{margin-top:0}
+.fh p{margin:0}
+.sw2+.kpi-note{margin-top:18px}

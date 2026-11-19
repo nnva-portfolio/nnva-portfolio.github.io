@@ -1,0 +1,216 @@
+/* FigJam canvas + chrome on top of the pastel (Droplist) style. Loaded after playful.css. */
+:root{--canvas:#fafafa;--dot:#d4d4d4;--sel:#0d99ff;--cta:#18181b;--cta-ink:#fff;--bar:#fff;--bar-line:#e7e7ea;
+  --sh:0 1px 2px rgba(0,0,0,.05),0 10px 26px rgba(30,30,60,.08);--sh-lg:0 2px 4px rgba(0,0,0,.05),0 22px 48px rgba(30,30,60,.13)}
+:root[data-theme="dark"]{--cta:#f3f3f6;--cta-ink:#18181b;--canvas:#17171b;--dot:#34343c;--bar:#232329;--bar-line:#2f2f37;
+  --sh:0 1px 2px rgba(0,0,0,.4),0 10px 26px rgba(0,0,0,.35);--sh-lg:0 2px 4px rgba(0,0,0,.4),0 22px 48px rgba(0,0,0,.5)}
+html,body{background:var(--canvas)}
+body{background:var(--canvas) radial-gradient(var(--dot) 1.2px,transparent 1.4px) 0 0/20px 20px fixed;padding-bottom:90px}
+:root{--bg:var(--canvas)}
+
+/* old chrome off */
+nav.top,nav.toc,.hero .crumb{display:none !important}
+
+/* ---------- bars ---------- */
+.fj-bar{position:fixed;z-index:60;display:flex;align-items:center;gap:2px;background:var(--bar);border-radius:12px;box-shadow:var(--sh);padding:5px;font-size:12px}
+.fj-bar.tl{top:14px;left:14px}.fj-bar.tr{top:14px;right:14px}
+.fj-bar .it{display:flex;align-items:center;gap:7px;padding:5px 9px;border-radius:8px;text-decoration:none;color:var(--ink);font-weight:500;white-space:nowrap}
+.fj-bar a.it:hover{background:rgba(127,127,140,.12)}
+.fj-bar .sep{width:1px;height:20px;background:var(--bar-line);margin:0 3px}
+.fj-bar svg{width:15px;height:15px;flex:none}
+.fj-bar .nnlogo{height:16px;color:var(--ink)}.fj-bar .nnl{width:auto;height:100%}
+/* nn logo: n-jump hover (keyframes from the logo guideline A17; rotate about the n centre 856.7,-296.1 in nnva units) */
+.nnlogo{display:inline-block;line-height:0;color:inherit}
+.nnl{display:block;height:100%;width:auto;overflow:visible}
+.nnl .nj{transform-origin:0 0}
+@keyframes nnjump{
+ 0%{transform:translate(0,0) translate(856.7px,-296.1px) rotate(0) translate(-856.7px,296.1px);animation-timing-function:linear}
+ 28%{transform:translate(0,0) translate(856.7px,-296.1px) rotate(0) translate(-856.7px,296.1px);animation-timing-function:cubic-bezier(.4,0,.6,1)}
+ 37.5%{transform:translate(0,14px) translate(856.7px,-296.1px) rotate(5deg) translate(-856.7px,296.1px);animation-timing-function:cubic-bezier(.2,0,.4,1)}
+ 48.5%{transform:translate(0,-80px) translate(856.7px,-296.1px) rotate(-6deg) translate(-856.7px,296.1px);animation-timing-function:cubic-bezier(.5,0,.9,1)}
+ 60%{transform:translate(0,8px) translate(856.7px,-296.1px) rotate(2deg) translate(-856.7px,296.1px);animation-timing-function:cubic-bezier(.3,0,.5,1)}
+ 69%{transform:translate(0,0) translate(856.7px,-296.1px) rotate(0) translate(-856.7px,296.1px);animation-timing-function:linear}
+ 100%{transform:translate(0,0) translate(856.7px,-296.1px) rotate(0) translate(-856.7px,296.1px)}
+}
+.nn-hover.nn-play .nj{animation:nnjump 3.2s infinite;animation-delay:-.8s}
+@media (prefers-reduced-motion:reduce){.nn-hover.nn-play .nj{animation:none}}
+
+.fj-sq{width:18px;height:18px;border-radius:5px;display:grid;place-items:center;background:var(--cta);color:var(--cta-ink);font-weight:800;font-size:11px}
+.fj-bar .lang{display:flex;gap:2px}
+.fj-bar .lang a{font-family:var(--font-mono);font-size:10.5px;padding:5px 7px;border-radius:7px;text-decoration:none;color:var(--muted);background:none}
+.fj-bar .lang a.on{background:var(--ink);color:var(--canvas)}
+.fj-bar button.mode{width:28px;height:28px;margin:0;border:0;border-radius:8px;background:none}
+.fj-bar button.mode:hover{background:rgba(127,127,140,.12)}
+.fj-cta{display:inline-block;background:var(--cta);color:var(--cta-ink) !important;font-weight:700;font-size:12px;padding:7px 14px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:transform .25s cubic-bezier(.2,.9,.3,1.4),box-shadow .25s}
+.fj-cta:hover{transform:translateY(-2px) rotate(-2deg);box-shadow:0 10px 22px rgba(0,0,0,.22)}
+.pill{background:var(--cta)}
+/* case-study switcher (file pill + popover) */
+.fj-sw{position:relative}
+.fj-bar button.it{border:0;background:none;font:inherit;font-weight:500;cursor:pointer;margin:0}
+.fj-bar .fj-sw button.it:hover,.fj-sw.open button.it{background:rgba(127,127,140,.12)}
+.fj-sw .chev{width:13px;height:13px;margin-left:-2px;color:var(--muted);transition:transform .2s ease}
+.fj-sw.open .chev{transform:rotate(180deg)}
+.fj-pop{position:absolute;top:calc(100% + 8px);left:-4px;width:264px;max-width:calc(100vw - 28px);background:var(--bar);border-radius:14px;box-shadow:var(--sh-lg),0 0 0 1px var(--bar-line);padding:6px;
+  opacity:0;visibility:hidden;transform:translateY(-4px) scale(.98);transform-origin:20% 0;transition:opacity .16s ease,transform .16s ease,visibility 0s .16s}
+.fj-pop::before{content:"";position:absolute;left:0;right:0;top:-10px;height:10px}
+.fj-sw.open .fj-pop{opacity:1;visibility:visible;transform:none;transition:opacity .16s ease,transform .16s ease}
+.fj-pop .hd{display:flex;justify-content:space-between;margin:0;padding:6px 10px 8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.fj-cs{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:9px;text-decoration:none;color:var(--ink);outline:none;transition:background .12s}
+.fj-cs+.fj-cs{margin-top:2px}
+.fj-cs:hover,.fj-cs:focus-visible{background:rgba(127,127,140,.11)}
+.fj-cs .dot{flex:none;align-self:flex-start;width:8px;height:8px;margin:5px 0 0 2px;border-radius:50%;background:var(--cc)}
+.fj-cs .tx{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.fj-cs b{font-size:13px;font-weight:600;line-height:1.2;white-space:nowrap}
+.fj-cs small{font-size:11.5px;line-height:1.2;color:var(--muted);white-space:nowrap}
+.fj-cs .ar{width:14px;height:14px;color:var(--muted);flex:none;opacity:0;transform:translateX(-4px);transition:opacity .15s,transform .15s}
+.fj-cs:hover .ar,.fj-cs:focus-visible .ar{opacity:1;transform:none}
+.fj-cs .here{flex:none;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.03em;padding:3px 7px;border-radius:999px;background:rgba(13,153,255,.12);color:var(--sel)}
+.fj-cs.on{cursor:default}
+.fj-cs.on:hover{background:none}
+@media(prefers-reduced-motion:reduce){.fj-pop,.fj-sw .chev,.fj-cs .ar{transition:none}}
+@media(max-width:560px){.fj-bar.tl .fn{display:none}.fj-bar.tl .f2{gap:3px;padding:5px 7px}.fj-pop{position:fixed;top:62px;left:14px;right:14px;width:auto;min-width:0}.fj-pop::before{display:none}}
+
+/* bottom toolbar = sections */
+.fj-tools{position:fixed;z-index:60;left:50%;bottom:16px;transform:translateX(-50%);display:flex;align-items:center;gap:2px;background:var(--bar);border-radius:14px;box-shadow:var(--sh-lg);padding:6px;max-width:calc(100vw - 16px);overflow-x:auto;scrollbar-width:none}
+.fj-tools a{position:relative;flex:none;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;color:var(--ink);text-decoration:none}
+.fj-tools a:hover{background:rgba(127,127,140,.12)}
+.fj-tools a.on{background:var(--sel);color:#fff}
+.fj-tools a svg{width:18px;height:18px}
+.fj-tip{position:fixed;z-index:70;background:#18181b;color:#fff;font-size:11px;font-weight:500;padding:4px 8px;border-radius:6px;white-space:nowrap;pointer-events:none;opacity:0;transform:translate(-50%,4px);transition:opacity .15s,transform .15s}
+.fj-tip.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- multiplayer cursors ---------- */
+.fj-cur{position:absolute;z-index:6;pointer-events:none;display:flex;align-items:flex-start;animation:fjdrift 10s ease-in-out infinite}
+.fj-cur svg{width:17px;height:17px;flex:none;filter:drop-shadow(0 1px 1px rgba(0,0,0,.2))}
+.fj-cur b{margin:13px 0 0 -2px;color:#fff;font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:4px 999px 999px 999px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.fj-cur:nth-child(2n){animation-duration:12s;animation-delay:-3s}.fj-cur:nth-child(3n){animation-duration:11s;animation-delay:-6s}
+@keyframes fjdrift{0%,100%{translate:0 0}25%{translate:12px -9px}50%{translate:-7px 7px}75%{translate:9px 11px}}
+.hero{position:relative}
+.hero .wide{position:relative}
+@media(max-width:1180px){.fj-cur.hs{display:none}}
+
+/* "pick a term" note becomes a cursor */
+.tablebox .hand{font-family:var(--font-body);font-size:11.5px;color:#fff;rotate:0deg;transform:none;left:auto;right:6%;top:-16px;display:flex;align-items:flex-start;z-index:5;animation:fjdrift 8s ease-in-out infinite}
+.tablebox .hand b{margin:13px 0 0 -2px;background:#9747ff;color:#fff;font-weight:600;padding:4px 10px;border-radius:4px 999px 999px 999px;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+
+/* ---------- selection box on the hero word ---------- */
+.fj-sel{position:relative;display:inline-block;padding:0 .18em;outline:1.5px solid var(--sel);animation:fjselin 1s cubic-bezier(.2,.8,.2,1) .5s both}
+.fj-sel>i{position:absolute;width:9px;height:9px;background:#fff;border:1.5px solid var(--sel);border-radius:1px}
+.fj-sel>i:nth-child(1){left:-5px;top:-5px}.fj-sel>i:nth-child(2){right:-5px;top:-5px}.fj-sel>i:nth-child(3){left:-5px;bottom:-5px}.fj-sel>i:nth-child(4){right:-5px;bottom:-5px}
+.fj-sel .dim{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);background:var(--sel);color:#fff;font:500 10px var(--font-mono);font-style:normal;padding:1px 6px;border-radius:4px;white-space:nowrap;letter-spacing:0;rotate:0deg}
+.hero h1 .fj-sel em{transform:rotate(-4deg)}
+@keyframes fjselin{from{outline-color:transparent;clip-path:inset(0 100% 0 0)}to{clip-path:inset(-40px -20px -20px -20px)}}
+
+/* ---------- frame names above blocks ---------- */
+.fj-fname{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);font-weight:500;margin:26px 0 6px 6px;letter-spacing:0;text-transform:none;font-family:var(--font-body)}
+.fj-fname svg{width:11px;height:11px}
+.layers,.goals{margin-top:0 !important;border-radius:28px}
+.tablebox,.decision,.bars{border-radius:28px !important}
+
+/* selection on hover for cards and frames */
+.layer:hover,.goal:hover,.decision>div:hover,.frame.bw:hover,.track div:hover{outline:1.5px solid var(--sel);outline-offset:4px}
+
+/* ---------- browser frames ---------- */
+.shot .frame.bw{padding:0 !important;overflow:hidden !important;border-radius:14px !important;box-shadow:var(--sh-lg) !important;rotate:0deg !important;cursor:zoom-in}
+.frame.bw .chrome{display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1px solid var(--bar-line);background:var(--bar)}
+.frame.bw .chrome i{width:9px;height:9px;border-radius:50%;background:#ff5f57}.frame.bw .chrome i:nth-child(2){background:#febc2e}.frame.bw .chrome i:nth-child(3){background:#28c840}
+.frame.bw .chrome span{margin-left:8px;font-size:11px;color:var(--muted);font-family:var(--font-mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.frame.bw .scroll{max-height:560px;overflow-x:hidden;overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none}
+.frame.bw .scroll::-webkit-scrollbar,.strip::-webkit-scrollbar{display:none;width:0;height:0}
+.frame.bw img{width:100%;border-radius:0 !important;display:block}
+
+/* before / after */
+.ba{display:flex;flex-direction:column;gap:14px}
+.ba-seg{align-self:center;display:inline-flex;background:var(--bar);border:1px solid var(--bar-line);border-radius:10px;padding:3px;gap:2px;box-shadow:var(--sh)}
+.ba-seg button{font:600 12px var(--font-body);border:0;background:none;color:var(--muted);padding:5px 14px;border-radius:7px;cursor:pointer}
+.ba-seg button.on{background:var(--ink);color:var(--canvas)}
+.ba-view{animation:fjin .4s cubic-bezier(.2,.8,.2,1)}
+.ba-view[hidden]{display:none}
+.ba-view.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:860px){.ba-view.two{grid-template-columns:1fr}}
+@keyframes fjin{from{opacity:0;translate:0 10px}to{opacity:1;translate:0 0}}
+
+/* state strip: frames side by side, scroll sideways when many */
+.strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:16px;overflow-x:auto;padding:4px 4px 14px;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none}
+.strip .sf{margin:0;scroll-snap-align:start}
+.strip .sf figcaption{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--muted);margin:0 2px 6px;font-weight:500;text-align:left}
+.strip .sf figcaption b{color:var(--ink);font-weight:600}
+.strip .sf figcaption b::before{content:"# ";color:var(--muted);font-weight:400}
+.strip .frame.bw .scroll{max-height:none;aspect-ratio:16/10;overflow-x:hidden;overflow-y:auto;background:#fff}
+.strip .sf{display:flex;flex-direction:column}.strip .sf figcaption{white-space:nowrap}
+.shot .frame:has(>.strip),.shot .frame:has(>.ba){background:none !important;border:0 !important;box-shadow:none !important;padding:0 !important}
+
+/* ---- case study hero: version A look ---- */
+.hero{padding-top:110px}
+.hero h1{font-weight:800;font-size:clamp(28px,4.6vw,46px);letter-spacing:-.045em;line-height:1.1}
+.hero h1 .fj-sel em,.hero h1 em{transform:none;color:var(--ink);font-style:italic;font-weight:500;display:inline-block}
+.hero .tag{rotate:-2deg;box-shadow:var(--sh);background:var(--bar);margin-bottom:34px}
+
+/* per-card before/after on screen strips */
+.strip .sf-seg{align-self:flex-start;display:none;background:var(--bar);border:1px solid var(--bar-line);border-radius:8px;padding:2px;gap:2px;margin:0 0 8px 2px}
+.strip .sf-seg button{font:600 11px var(--font-body);border:0;background:none;color:var(--muted);padding:3px 10px;border-radius:6px;cursor:pointer}
+.strip .sf-seg button.on{background:var(--ink);color:var(--canvas)}
+.strip .sf-v[hidden]{display:none}
+.strip .sf-v{animation:fjin .35s cubic-bezier(.2,.8,.2,1)}
+.strip .frame.bw.nob .scroll{display:grid;place-items:center;background:var(--bar);background-image:repeating-linear-gradient(135deg,transparent 0 10px,rgba(127,127,127,.07) 10px 11px)}
+.strip .nob-in{display:flex;flex-direction:column;gap:6px;text-align:center;padding:16px}
+.strip .nob-in b{font-size:13px;color:var(--ink);font-weight:600}
+.strip .nob-in span{font-size:12px;color:var(--muted)}
+
+/* let card shadows breathe inside the scrolling strip (overflow clips them otherwise) */
+.strip{--sp:clamp(8px,2.2vw,28px);padding:14px var(--sp) 72px;margin:-14px calc(-1*var(--sp)) -48px;scroll-padding-inline:var(--sp)}
+
+/* before/after toggle lives in the detail (lightbox) only */
+.lb .lb-seg{margin-left:auto;display:none;background:var(--bar,#f4f4f6);border:1px solid var(--bar-line,#e3e3e8);border-radius:8px;padding:2px;gap:2px}
+.lb .lb-seg.on{display:inline-flex}
+.lb .lb-seg button{font:600 11px var(--font-body,inherit);border:0;background:none;color:var(--muted,#667);padding:3px 10px;border-radius:6px;cursor:pointer}
+.lb .lb-seg button.on{background:var(--ink,#111);color:var(--canvas,#fff)}
+
+/* ---------- tabbed comparison table (LinkAdz terms, YUMZY competitors): transparent, same look as the Designathon table.
+   No pastel box, no opaque white card, no saturated chip, so nothing flashes when the theme switches. ---------- */
+.tablebox{background:none !important;border:0 !important;border-radius:0 !important;padding:0 !important;box-shadow:none !important;overflow:visible !important;margin-top:56px}
+.tablebox .hand{top:-44px}
+.tablebox table{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:none;overflow:hidden}
+.tablebox.tabbed tr,.tablebox.tabbed tr.on{background:none;border:0;border-radius:0;box-shadow:none;margin:0;padding:6px 20px 2px}
+.tablebox td{border-bottom:1px solid var(--line)}
+.ttabs button{background:var(--surface) !important;border:1px solid var(--line) !important;color:var(--ink) !important}
+.ttabs button:hover{background:rgba(127,140,180,.16) !important}
+.ttabs button.on{background:var(--cta) !important;border-color:var(--cta) !important;color:var(--cta-ink) !important}
+.ttabs>span,.ttabs small{color:var(--muted)}
+
+/* ---------- "the 6 steps at a glance": six screenshots + live text titles on a transparent background.
+   (It used to be one picture with a light grey background and black titles baked in, so it stayed solid white in dark mode.) ---------- */
+.ov6{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 22px}
+.ov6 .ovc{min-width:0}
+.shot .ov6 .frame{background:none !important;border:1px solid var(--line) !important;box-shadow:none !important;padding:0 !important;border-radius:12px !important;overflow:hidden !important;rotate:0deg !important}
+.shot .ov6 .frame img{display:block;width:100%;height:auto;border-radius:0;box-shadow:none}
+.shot .ov6 .frame:hover img{transform:none;box-shadow:none}
+.ovt{display:flex;align-items:center;gap:10px;margin:12px 2px 0 !important;font-weight:700;font-size:clamp(13px,1.9vw,16px);letter-spacing:-.01em;line-height:1.25;color:var(--ink)}
+.ovt i{flex:none;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#f26522;color:#fff;font:700 12px/1 var(--font-body);font-style:normal}
+@media(max-width:560px){.ov6{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 14px}.ovt i{width:20px;height:20px;font-size:11px}}
+
+/* ===== LAYOUT RULES (19/11/2026) =====
+   Every block sits on ONE centre axis and uses ONE of four widths. Nothing else.
+   READ    600  text, headings, cards, tables, persona   (text and cards share the same left/right edge)
+   MEDIA   880  screenshots, photos, video, chart, galleries, phone rows
+   DIAGRAM 1180 flows and user flows only
+   DEVICE  300  one phone clip, centred
+   Each tier is min(tier, 100vw - 48px), so on a phone every block is exactly screen width minus 24px each side. */
+:root{--text:600px;--wide:648px;--w-read:600px;--w-media:880px;--w-diagram:1180px;--w-device:300px;--pad2:calc(100vw - 48px)}
+.shot{--figw:min(var(--w-media),var(--pad2))}
+.shot:has(.fx){--figw:min(var(--w-diagram),var(--pad2))}
+main .dtw,main .dtp,main .gal{--yw:min(var(--w-media),var(--pad2))}
+.frame.bw .chrome{align-items:flex-start}
+.frame.bw .chrome i{margin-top:3px;flex:none}
+.frame.bw .chrome span{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.4;min-width:0}
+@media(max-width:860px){
+}
+/* ≤560: card grids are always one column (two cards of 150px do not fit text) */
+@media(max-width:560px){main .goals,main .goals.three{grid-template-columns:1fr !important}}
+/* screen strips: a grid that wraps (3 / 2 / 1 columns), never a sideways scroller */
+main .strip{grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-columns:auto;overflow:visible;scroll-snap-type:none;gap:20px 16px;padding:4px 4px 8px}
+main .strip .sf figcaption{white-space:normal;flex-wrap:wrap}
+@media(max-width:860px){main .strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){main .strip{grid-template-columns:minmax(0,1fr)}
+  main .bar{height:44px}main .bar em{white-space:normal;line-height:1.15;font-size:10.5px;padding:0 6px 0 10px}}
+main .strip .frame.bw .chrome span{display:none}/* the title already sits above the card; the lightbox still reads it */
+main .strip{--sp:0px;margin:0;padding:6px 0 4px;scroll-padding-inline:0}

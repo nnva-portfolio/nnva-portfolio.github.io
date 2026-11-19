@@ -1,0 +1,123 @@
+/* Playful pastel style (Droplist-like) for the case study. Loaded after combo.css. Fonts unchanged. */
+:root{
+  --bg:#ffffff;--ink2:#3a3f52;--cta:#18181b;--cta-ink:#fff;
+  --p-blue:#e9eefc;--p-blue-2:#d6e0fb;--i-blue:#2f5bdc;
+  --p-pink:#fdebf1;--p-pink-2:#fbd5e3;--i-pink:#d6337a;
+  --p-peach:#fff2e8;--p-peach-2:#ffdfc7;--i-peach:#b5560f;
+  --p-mint:#ebf7ef;--p-mint-2:#cfeedb;--i-mint:#1f9254;
+  --p-violet:#f1ecff;--p-violet-2:#e1d7ff;--i-violet:#6a45e0;
+  --card:#ffffff;--card-line:#ececf1;
+  --soft:0 1px 0 rgba(20,20,40,.03),0 12px 28px rgba(40,46,90,.08);
+  --c:var(--p-blue);--c2:var(--p-blue-2);--ci:var(--i-blue);
+}
+:root[data-theme="dark"]{
+  --bg:#0e1018;--ink2:#c9cddc;
+  --p-blue:#161d36;--p-blue-2:#22305c;--i-blue:#8eaaff;
+  --p-pink:#2a1622;--p-pink-2:#4a2238;--i-pink:#ff8cc0;
+  --p-peach:#2a1d12;--p-peach-2:#4a2f18;--i-peach:#ffb27a;
+  --p-mint:#122219;--p-mint-2:#1d3d2a;--i-mint:#79dca3;
+  --p-violet:#1d1830;--p-violet-2:#33295a;--i-violet:#b9a3ff;
+  --card:#181b26;--card-line:rgba(255,255,255,.08);
+  --soft:0 14px 30px rgba(0,0,0,.35);
+}
+body{background:var(--bg)}
+body::before,body::after{display:none}
+
+/* colour per section */
+#scope,#flow{--c:var(--p-blue);--c2:var(--p-blue-2);--ci:var(--i-blue)}
+#problem,#iter{--c:var(--p-pink);--c2:var(--p-pink-2);--ci:var(--i-pink)}
+#goals,#responsive{--c:var(--p-peach);--c2:var(--p-peach-2);--ci:var(--i-peach)}
+#discover,#qc{--c:var(--p-mint);--c2:var(--p-mint-2);--ci:var(--i-mint)}
+#result{--c:var(--p-violet);--c2:var(--p-violet-2);--ci:var(--i-violet)}
+
+/* reset glass */
+.layer,.goal,.tablebox,.track div,.pull,.shot .frame,.decision,.bars,.toc-btn,.toc-list,nav.top>div{
+  -webkit-backdrop-filter:none;backdrop-filter:none}
+
+/* ---------- hero ---------- */
+.hero{text-align:center;padding-top:72px}
+.hero .tag{display:inline-block;background:var(--p-violet);color:var(--i-violet);border-radius:8px;padding:4px 10px;font-weight:600;letter-spacing:.04em}
+.hero h1{font-weight:700;letter-spacing:-.035em}
+.hero h1 em{background:none;-webkit-background-clip:initial;background-clip:initial;color:var(--cta);display:inline-block;transform:rotate(-4deg)}
+.hero .sub{color:var(--muted)}
+.hero .sub span{text-align:center}
+.hero-cta{margin:22px 0 0}
+.pill{display:inline-block;background:var(--cta);color:var(--cta-ink) !important;font-weight:700;font-size:12px;padding:8px 17px;border-radius:999px;text-decoration:none;transition:transform .25s cubic-bezier(.2,.9,.3,1.4),box-shadow .25s}
+.pill:hover{transform:translateY(-2px) rotate(-2deg);box-shadow:0 10px 22px rgba(255,90,31,.3)}
+.hero .meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px;text-align:left;border:0}
+.hero .meta>div{background:var(--card);border:1px solid var(--card-line);border-radius:16px;padding:14px 16px;box-shadow:var(--soft);border-bottom:1px solid var(--card-line);transition:rotate .4s cubic-bezier(.2,.9,.3,1.25),translate .4s}
+.hero .meta>div:nth-child(1){rotate:-1.5deg}.hero .meta>div:nth-child(2){rotate:1.2deg}
+.hero .meta>div:nth-child(3){rotate:1deg}.hero .meta>div:nth-child(4){rotate:-1.2deg}
+.hero .meta>div:hover{rotate:0deg;translate:0 -4px}
+.hero .meta dt{display:inline-block;font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:0;text-transform:none;padding:2px 8px;border-radius:7px;margin-bottom:8px}
+.hero .meta>div:nth-child(1) dt{background:var(--p-mint);color:var(--i-mint)}
+.hero .meta>div:nth-child(2) dt{background:var(--p-blue);color:var(--i-blue)}
+.hero .meta>div:nth-child(3) dt{background:var(--p-pink);color:var(--i-pink)}
+.hero .meta>div:nth-child(4) dt{background:var(--p-peach);color:var(--i-peach)}
+.hero .meta dd{font-size:13px;line-height:1.5}
+@media(max-width:420px){.hero .meta{grid-template-columns:1fr}}
+
+/* ---------- section heads: centred, number as a chip ---------- */
+section{padding-top:120px}
+.sec-head{flex-direction:column;align-items:center;text-align:center;gap:10px}
+.sec-no{display:inline-block;background:var(--c);color:var(--ci);font-family:var(--font-body);font-weight:700;font-size:11px;padding:3px 9px;border-radius:8px;letter-spacing:0}
+h2{font-weight:700;font-size:clamp(20px,2.8vw,24px);letter-spacing:-.035em}
+.lede{text-align:center;color:var(--ink2);font-weight:500}
+h3{letter-spacing:-.02em}
+
+/* ---------- big pastel cards with tilted white cards inside ---------- */
+.layers,.goals{background:var(--c);border:0;border-radius:30px;padding:clamp(22px,4vw,38px);gap:16px;box-shadow:none}
+.layer,.goal{background:var(--card) !important;border:1px solid var(--card-line) !important;border-radius:16px !important;box-shadow:var(--soft) !important;
+  transition:rotate .45s cubic-bezier(.2,.9,.3,1.25),translate .45s cubic-bezier(.2,.9,.3,1.25),box-shadow .3s}
+.layer:nth-child(odd),.goal:nth-child(odd){rotate:-1.4deg}
+.layer:nth-child(even),.goal:nth-child(even){rotate:1.4deg;translate:6px 4px}
+.layer:hover,.goal:hover{rotate:0deg;translate:0 -5px;box-shadow:0 22px 40px rgba(40,46,90,.14) !important}
+.kicker{display:inline-block;background:var(--c);color:var(--ci);font-family:var(--font-body);font-weight:700;font-size:11px;letter-spacing:0;text-transform:none;padding:3px 9px;border-radius:7px}
+.goal i{background:var(--c) !important;color:var(--ci) !important;border-radius:7px}
+
+/* ---------- comparison tabs ---------- */
+.tablebox{background:var(--c) !important;border:0 !important;border-radius:30px !important;padding:clamp(18px,3.4vw,30px) !important;box-shadow:none !important;position:relative;overflow:visible !important}
+.tablebox table{background:var(--card);border-radius:16px;box-shadow:var(--soft);overflow:hidden}
+.ttabs button{background:var(--card) !important;border:1px solid var(--card-line) !important;color:var(--ink) !important;border-radius:9px !important;font-weight:600}
+.ttabs button.on{background:var(--ci) !important;border-color:var(--ci) !important;color:#fff !important}
+.ttabs>span,.ttabs small{color:var(--ci)}
+.hand{position:absolute;left:clamp(-90px,-6vw,-8px);top:-30px;font-family:'Caveat',cursive;font-size:20px;color:var(--cta);transform:rotate(-6deg);white-space:nowrap;pointer-events:none}
+.hand svg{display:inline-block;vertical-align:middle;margin-left:2px}
+
+/* ---------- screenshots: white frames, slightly tilted, straighten on hover ---------- */
+.shot .frame{background:var(--card) !important;border:1px solid var(--card-line) !important;border-radius:18px !important;box-shadow:0 18px 40px rgba(40,46,90,.12) !important;padding:8px !important;
+  transition:rotate .5s cubic-bezier(.2,.9,.3,1.2)}
+.shot .frame::before,.shot .frame::after{display:none !important}
+.shot .frame img{border-radius:11px}
+.shot .frame:has(>svg),.shot .frame.uflow{background:var(--card) !important;border:1px solid var(--card-line) !important;box-shadow:var(--soft) !important;border-radius:24px !important;padding:clamp(14px,2.4vw,24px) !important;rotate:0deg !important}
+figcaption{text-align:center;color:var(--muted)}
+
+/* steps tracks: chips */
+.track div{background:var(--card) !important;border:1px solid var(--card-line) !important;border-radius:12px !important;box-shadow:var(--soft) !important}
+.track div.moved{background:var(--c2) !important;border-color:var(--c2) !important;color:var(--ci) !important}
+.track div.moved small,.track div.moved *{color:var(--ci) !important}
+
+/* quote, decisions, bars */
+.pull::before,.pull::after{display:none !important}
+.pull{background:var(--c) !important;border:0 !important;border-radius:24px !important;box-shadow:5px 6px 0 var(--c2) !important;rotate:-.8deg}
+.decision{background:var(--c) !important;border:0 !important;border-radius:30px !important;box-shadow:none !important;padding:clamp(20px,3.6vw,32px) !important}
+.decision>div{background:var(--card);border-radius:14px;padding:12px 14px;box-shadow:var(--soft)}
+.decision>div:nth-child(odd){rotate:-.8deg}.decision>div:nth-child(even){rotate:.8deg}
+.bars{background:var(--c) !important;border:0 !important;border-radius:30px !important;box-shadow:none !important}
+
+/* corners */
+nav.top.ctl>div{background:var(--card) !important;border:1px solid var(--card-line) !important;box-shadow:none !important}
+.toc-btn,.toc-list{background:var(--card) !important;border:1px solid var(--card-line) !important;box-shadow:var(--soft) !important}
+
+/* ---------- footer wordmark ---------- */
+.bigmark{margin:110px 0 0;height:clamp(96px,17vw,170px);overflow:hidden;text-align:center;font-family:var(--font-display);font-weight:800;font-size:clamp(96px,20vw,210px);letter-spacing:-.07em;line-height:1;user-select:none;white-space:nowrap}
+.bigmark i{display:inline-block;font-style:normal;transition:transform .5s cubic-bezier(.2,.9,.3,1.4)}
+.bigmark i:nth-child(1){color:#ff8a4c;transform:rotate(-8deg) translateY(18px)}
+.bigmark i:nth-child(2){color:#4fd384;transform:rotate(6deg) translateY(4px)}
+.bigmark i:nth-child(3){color:#f78fc4;transform:rotate(-4deg) translateY(26px)}
+.bigmark i:nth-child(4){color:#6b8bff;transform:rotate(9deg) translateY(10px)}
+.bigmark i:nth-child(5){color:#ff8a4c;transform:rotate(-6deg) translateY(30px)}
+.bigmark i:nth-child(6){color:#f78fc4;transform:rotate(5deg) translateY(12px)}
+.bigmark i:nth-child(7){color:#6b8bff;transform:rotate(-10deg) translateY(22px)}
+.bigmark:hover i{transform:rotate(0) translateY(6px)}
+@media(prefers-reduced-motion:reduce){.layer,.goal,.shot .frame,.hero .meta>div,.bigmark i{transition:none}}
