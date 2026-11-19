@@ -122,6 +122,13 @@ figcaption{font-size:12px;color:var(--muted);text-align:center;margin:10px 4px 0
 .per .note.gl{--nc:var(--p-mint);--ni:var(--i-mint)}
 .per .note .lab{color:var(--ni);margin-bottom:4px}
 .per .note p:not(.lab){margin:0;font-size:14px;line-height:1.55}
+/* persona card spacing: beat the generic .layers.rich list rules and the generic .bh rule */
+.layers.rich .layer.per .chips{margin:0 0 18px;padding:0;gap:8px}
+.layers.rich .layer.per .chips li{margin:0;font-size:12px;line-height:1}
+.per .who h3{margin-bottom:12px}
+.per .who .lab{margin-bottom:8px}
+.per .notes{margin-top:20px;gap:12px}
+.per .note.bh{margin-top:0}
 
 /* ---------- 7. BRAND SWATCHES (the product's own colours are content, so they are literal) ---------- */
 .sw2{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
