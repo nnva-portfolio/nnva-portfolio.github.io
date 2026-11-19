@@ -573,7 +573,7 @@ html.stlock{overflow:hidden}
     <div class="decision">
       <div><p class="kicker">Vấn đề</p><p>Card cố định 960px ở mọi step. Ở 1920px thừa khoảng 360px mỗi bên; laptop cao 864px thì Step 3b phải cuộn.</p></div>
       <div><p class="kicker">Một rule thay vì vẽ từng kích thước</p><p>Card = min(100%, max(960, 5/6 vùng nội dung)), workspace tối đa 1600px, lưới auto-fill. Mức 1440px giữ nguyên nên 193 frame hiện có không phải vẽ lại.</p></div>
-      <div><p class="kicker">Đánh đổi đã chấp nhận</p><p>Không có frame 1920 trong Figma; dev đọc rule qua annotation. Mình dựng thêm demo tương tác (rộng 1024–2560) cho dev và QA kiểm tra.</p></div>
+      <div><p class="kicker">Đánh đổi đã chấp nhận</p><p>Không có frame 1920 trong Figma; dev đọc rule qua annotation. Mình dựng thêm demo tương tác (rộng 1024 – 2560) cho dev và QA kiểm tra.</p></div>
     </div>
   </div>
   <div class="text">
@@ -616,7 +616,7 @@ html.stlock{overflow:hidden}
   <div class="wide"><div class="sec-head"><span class="sec-no">06</span><h2>Design system: làm một lần, dùng cho mọi màn hình</h2></div></div>
   <div class="text">
     <p class="lede">Mọi màn hình ở trên đều được ghép từ một thư viện Figma, nên sửa một token hay một component là cập nhật được tất cả.</p>
-    <p><b>Thư viện gồm.</b> 12 bộ variable, 77 component set với 1.671 variant, 34 text style và 76 colour style. Mình làm variable và component cho cả app, không chỉ cho flow này.</p>
+    <p><b>Thư viện gồm.</b> 12 bộ variable, 77 component set với 1.671 variant, 34 text style và 76 color style. Mình làm variable và component cho cả app, không chỉ cho flow này.</p>
   </div>
   <div class="wide">
     <figure class="shot">
@@ -676,7 +676,7 @@ html.stlock{overflow:hidden}
   </div>
   <div class="wide">
     <figure class="shot">
-      <div class="frame"><video src="ds/motion_loading.mp4" poster="ds/motion_loading_poster.jpg" width="1440" height="620" autoplay loop muted playsinline preload="metadata" aria-label="Animation của Loading Frame"></video></div>
+      <div class="frame"><video src="ds/motion_loading.mp4" poster="ds/motion_loading_poster.jpg" width="1440" height="620" data-autoplay loop muted playsinline preload="none" aria-label="Animation của Loading Frame"></video></div>
       <figcaption>Clip: component Loading Frame chạy qua 12 phase (10 khung hình/giây trong clip này), rồi kết quả hiện ra. Dài 8 giây, lặp lại.</figcaption>
     </figure>
   </div>
@@ -695,7 +695,7 @@ html.stlock{overflow:hidden}
       <div class="goal"><i>01</i><b>Tỷ lệ launch campaign đầu tiên</b><p>Bao nhiêu người bắt đầu thì đi đến được Launch.</p></div>
       <div class="goal"><i>02</i><b>Thời gian đến lúc launch</b><p>So với trung vị 21,5 phút của flow 4 bước.</p></div>
       <div class="goal"><i>03</i><b>Bước người dùng dừng lại nhiều nhất</b><p>Để biết bước nào cần làm tiếp.</p></div>
-      <div class="goal"><i>04</i><b>Cùng cách lọc như mốc ban đầu</b><p>Cùng event launch, loại tài khoản test, đo sau 4–6 tuần.</p></div>
+      <div class="goal"><i>04</i><b>Cùng cách lọc như mốc ban đầu</b><p>Cùng event launch, loại tài khoản test, đo sau 4 – 6 tuần.</p></div>
     </div>
   </div>
   <div class="text">
@@ -790,6 +790,6 @@ if('IntersectionObserver' in window&&!(window.matchMedia&&matchMedia('(prefers-r
 })();
 </script>
 <script src="logo.js?v=20261119"></script>
-<script src="fj.js?v=20261119d"></script>
+<script src="fj.js?v=20261119e"></script>
 </body>
 </html>

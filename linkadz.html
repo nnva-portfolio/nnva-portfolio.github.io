@@ -573,7 +573,7 @@ html.stlock{overflow:hidden}
     <div class="decision">
       <div><p class="kicker">Problem</p><p>The card was fixed at 960px on every step. At 1920px there is about 360px of wasted space on each side, and on a laptop 864px tall, Step 3b has to scroll.</p></div>
       <div><p class="kicker">One rule instead of every screen size</p><p>Card = min(100%, max(960, 5/6 of the content area)), workspace up to 1600px, auto-fill grid. The 1440px size stays the same, so the 193 existing frames do not need to be redrawn.</p></div>
-      <div><p class="kicker">Trade-off accepted</p><p>There is no 1920 frame in Figma, so the developers read the rule from the annotations. I also built an interactive demo (1024–2560 wide) for the developers and QA to check.</p></div>
+      <div><p class="kicker">Trade-off accepted</p><p>There is no 1920 frame in Figma, so the developers read the rule from the annotations. I also built an interactive demo (1024 – 2560 wide) for the developers and QA to check.</p></div>
     </div>
   </div>
   <div class="text">
@@ -616,22 +616,22 @@ html.stlock{overflow:hidden}
   <div class="wide"><div class="sec-head"><span class="sec-no">06</span><h2>Design system: built once, used on every screen</h2></div></div>
   <div class="text">
     <p class="lede">Every screen above is assembled from one Figma library, so a change to a token or a component reaches all of them.</p>
-    <p><b>What it holds.</b> 12 variable collections, 77 component sets with 1,671 variants, 34 text styles and 76 colour styles. I built the variables and components for the whole app, not only for this flow.</p>
+    <p><b>What it holds.</b> 12 variable collections, 77 component sets with 1,671 variants, 34 text styles and 76 color styles. I built the variables and components for the whole app, not only for this flow.</p>
   </div>
   <div class="wide">
     <figure class="shot">
       <div class="frame"><img src="ds/ds1_overview.jpg" alt="Design system overview: counts and the four token layers" width="1600" height="1176" loading="lazy"></div>
-      <figcaption>Overview: what the library contains and how tokens chain from raw colour to component</figcaption>
+      <figcaption>Overview: what the library contains and how tokens chain from raw color to component</figcaption>
     </figure>
   </div>
   <div class="text">
     <h3>Tokens that point to the layer before them</h3>
-    <p>Colour goes through four layers: Global Colors, Base Colors, Mode Colors (Light and Dark) and Components Color. A component never holds a hex value. Changing the brand colour, or switching to Dark, updates every component without opening a screen. Type works the same way: one text style switches between Desktop and Mobile through the Typography Configuration collection.</p>
+    <p>Color goes through four layers: Global Colors, Base Colors, Mode Colors (Light and Dark) and Components Color. A component never holds a hex value. Changing the brand color, or switching to Dark, updates every component without opening a screen. Type works the same way: one text style switches between Desktop and Mobile through the Typography Configuration collection.</p>
   </div>
   <div class="wide">
     <figure class="shot">
-      <div class="frame"><img src="ds/ds2_colour_type.jpg" alt="Colour ramps and type scale" width="1600" height="1849" loading="lazy"></div>
-      <figcaption>Foundations: colour ramps and the type scale (shown in Inter here; the app uses Pretendard)</figcaption>
+      <div class="frame"><img src="ds/ds2_colour_type.jpg" alt="Color ramps and type scale" width="1600" height="1849" loading="lazy"></div>
+      <figcaption>Foundations: color ramps and the type scale (shown in Inter here; the app uses Pretendard)</figcaption>
     </figure>
   </div>
   <div class="text">
@@ -676,7 +676,7 @@ html.stlock{overflow:hidden}
   </div>
   <div class="wide">
     <figure class="shot">
-      <div class="frame"><video src="ds/motion_loading.mp4" poster="ds/motion_loading_poster.jpg" width="1440" height="620" autoplay loop muted playsinline preload="metadata" aria-label="Loading Frame animation"></video></div>
+      <div class="frame"><video src="ds/motion_loading.mp4" poster="ds/motion_loading_poster.jpg" width="1440" height="620" data-autoplay loop muted playsinline preload="none" aria-label="Loading Frame animation"></video></div>
       <figcaption>Clip: the Loading Frame component played through its 12 phases (10 frames per second in this clip), then the result pops in. 8 seconds, loops.</figcaption>
     </figure>
   </div>
@@ -695,7 +695,7 @@ html.stlock{overflow:hidden}
       <div class="goal"><i>01</i><b>First campaign launch rate</b><p>Of the people who start, how many reach Launch.</p></div>
       <div class="goal"><i>02</i><b>Time to launch</b><p>Compared with the 21.5-minute median of the 4-step flow.</p></div>
       <div class="goal"><i>03</i><b>The step where users stop most</b><p>To know which step to work on next.</p></div>
-      <div class="goal"><i>04</i><b>Same filters as the first baseline</b><p>Same launch event, test accounts removed, measured after 4–6 weeks.</p></div>
+      <div class="goal"><i>04</i><b>Same filters as the first baseline</b><p>Same launch event, test accounts removed, measured after 4 – 6 weeks.</p></div>
     </div>
   </div>
   <div class="text">
@@ -790,6 +790,6 @@ if('IntersectionObserver' in window&&!(window.matchMedia&&matchMedia('(prefers-r
 })();
 </script>
 <script src="logo.js?v=20261119"></script>
-<script src="fj.js?v=20261119d"></script>
+<script src="fj.js?v=20261119e"></script>
 </body>
 </html>

@@ -140,3 +140,14 @@
   var h=document.querySelector('.sthint');if(!h)return;
   h.textContent=document.documentElement.lang==='vi'?'Chạm vào một file để mở step đó.':'Tap a file to open that step.';
 })();
+
+/* Looping clips load and play only while on screen (and not at all with reduced motion). */
+(function(){
+  var vs=[].slice.call(document.querySelectorAll('video[data-autoplay]'));if(!vs.length)return;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){
+    var v=en.target;
+    if(en.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()
+  })},{rootMargin:'120px',threshold:.15});
+  vs.forEach(function(v){io.observe(v)});
+})();
