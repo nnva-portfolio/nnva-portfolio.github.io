@@ -133,3 +133,10 @@
     })();
   },{passive:false});
 })();
+
+/* Touch screens have no hover: reword the file-tree hint in the LinkAdz steps. */
+(function(){
+  if(!(window.matchMedia&&matchMedia('(pointer:coarse)').matches))return;
+  var h=document.querySelector('.sthint');if(!h)return;
+  h.textContent=document.documentElement.lang==='vi'?'Chạm vào một file để mở step đó.':'Tap a file to open that step.';
+})();

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nnva-portfolio.github.io/sitemap.xml

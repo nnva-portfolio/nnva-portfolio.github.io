@@ -4,7 +4,8 @@
 :root[data-theme="dark"]{--cta:#f3f3f6;--cta-ink:#18181b;--canvas:#17171b;--dot:#34343c;--bar:#232329;--bar-line:#2f2f37;
   --sh:0 1px 2px rgba(0,0,0,.4),0 10px 26px rgba(0,0,0,.35);--sh-lg:0 2px 4px rgba(0,0,0,.4),0 22px 48px rgba(0,0,0,.5)}
 html,body{background:var(--canvas)}
-body{background:var(--canvas) radial-gradient(var(--dot) 1.2px,transparent 1.4px) 0 0/20px 20px fixed;padding-bottom:90px}
+body{background:var(--canvas);padding-bottom:90px}
+html::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(var(--dot) 1.2px,transparent 1.4px) 0 0/20px 20px}
 :root{--bg:var(--canvas)}
 
 /* old chrome off */
