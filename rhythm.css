@@ -8,17 +8,17 @@ section>.wide+.wide{margin-top:32px}
 /* the control that opens the full design system popup: a card, with the same Figma selection outline the other cards get on hover */
 .dsd-wrap{margin-top:28px}
 .dsd-open{display:block;width:100%;margin:0;padding:0;border:0;background:none;font:inherit;text-align:left;color:inherit;cursor:pointer;border-radius:20px}
-.dsd-card{display:flex;align-items:center;justify-content:space-between;gap:18px;background:var(--surface,#fff);border:1px solid var(--line,#e7e7ea);border-radius:20px;padding:20px 24px;transition:outline-color .2s}
+.dsd-card{display:flex;align-items:center;justify-content:space-between;gap:18px;background:var(--card,#fff);border:1px solid var(--line,#e7e7ea);border-radius:20px;padding:20px 24px;transition:outline-color .2s}
 .dsd-card b{display:block;font-size:17px;line-height:1.3;color:var(--ink,#111)}
 .dsd-card small{display:block;margin-top:4px;font-size:14px;line-height:1.5;color:var(--muted,#666)}
-.dsd-act{flex:none;display:inline-flex;align-items:center;gap:8px;background:var(--ink,#111);color:var(--bg,#fff);font-size:13.5px;font-weight:600;border-radius:999px;padding:9px 16px}
+.dsd-act{flex:none;display:inline-flex;align-items:center;gap:8px;background:var(--ink,#111);color:var(--canvas,#fff);font-size:13.5px;font-weight:600;border-radius:999px;padding:9px 16px}
 .dsd-act::after{content:"";width:7px;height:7px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg)}
 .dsd-open:hover .dsd-card,.dsd-open:focus-visible .dsd-card{outline:1.5px solid var(--sel,#0d99ff);outline-offset:4px}
 .dsd-open:focus{outline:none}
 /* inside the popup: same gaps as the page */
 .stpanel>.text+.wide,.stpanel>.wide+.text,.stpanel>.wide+.wide{margin-top:32px}
 .stpanel>.text:first-child h3{margin-top:0}
-@media(max-width:640px){
+@media(max-width:560px){
   section>.text+.wide{margin-top:20px}
   section>.wide+.text{margin-top:32px}
   section>.wide+.wide{margin-top:24px}
@@ -27,3 +27,10 @@ section>.wide+.wide{margin-top:32px}
 
 /* closing line at the end of a case study */
 footer.thanks{margin-top:120px;padding:56px 0 72px;font-size:14px;line-height:1.5;text-align:center;color:var(--muted,#666)}
+
+/* intro text above a figure: one spacing for every flow and strip (replaces inline margin/padding) */
+figure.shot{margin-top:48px}
+figure.shot>.text{padding:0 0 24px}
+figure.shot>.text>:is(h3,p){margin:0}
+figure.shot>.text>p+p{margin-top:10px}
+figure.shot>.text>.kicker{margin:0 0 8px}
