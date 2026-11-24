@@ -354,7 +354,7 @@ html.stlock{overflow:hidden}
   </div>
   <div class="wide">
     <div class="goals">
-      <div class="goal"><i>Problem</i><b>Beginners face too many decisions at once</b><p>In the old 4-step flow, each step packed in too many fields, buttons and decisions. Small business owners who have never run an ad froze, guessed or skipped key fields.</p></div>
+      <div class="goal"><i>Problem</i><b>Beginners lack the knowledge, and the flow asked too much at once</b><p>Small business owners who have never run an ad do not know how to choose an audience or a budget. The old 4-step flow then packed in too many fields, buttons and decisions, so they froze, guessed or skipped key fields.</p></div>
       <div class="goal"><i>Role</i><b>I owned the UX, UI and components</b><p>The Korea team ran the user interviews and I synthesized the insights. I owned UX, UI, variables and components in Figma, with Manual QA support. Who decided what is set out just below.</p></div>
       <div class="goal"><i>Action</i><b>Prototype first, then design</b><p>I built a 6-step HTML prototype with Claude, settled the step order with developers over several rounds, then designed every step, its error states and the design system in Figma. One decision per step; ad copy now comes before Audience.</p></div>
       <div class="goal"><i>Result</i><b>Shipped 28 Oct 2026, measuring now</b><p>Baseline to beat: 33% of users who start launch their first campaign, median 21.5 min (4-step flow). Post-launch data is not enough to draw conclusions yet. How I measure it is in section 07.</p></div>
@@ -439,13 +439,23 @@ html.stlock{overflow:hidden}
       </div>
       <div class="layer">
         <p class="kicker">My synthesis</p>
-        <h3>Split into two layers of problems</h3>
-        <ul><li>Layer 1, running ads: users lack the knowledge to choose an audience and a budget, and each platform has its own set of terms.</li><li>Layer 2, the 4-step flow itself: each step has too many actions, pieces of information and buttons.</li></ul>
+        <h3>Two problems that look like one</h3>
+        <ul><li>Missing knowledge about running ads, and a flow that asks too much, have different causes.</li><li>So they need different fixes. The three parts are set out below.</li></ul>
       </div>
     </div>
   </div>
   <div class="text">
-    <p class="impact">For beginners this meant <span>freezing, guessing, or skipping</span> key fields like audience and forecast, which led to wrong targeting, wasted budget, or abandoned campaigns.</p>
+    <h3>The problem in three parts</h3>
+    <p>Each part points to a different part of the solution, which is why the fix is not only "add more steps".</p>
+  </div>
+  <div class="wide">
+    <div class="goals three">
+      <div class="goal"><i>1 · User problem</i><b>Beginners cannot set up a campaign on their own</b><p>Small business owners who have never run an ad do not know how to choose an audience or a budget, and each ad platform names the same thing differently. <b>Response:</b> AI suggests the audience, the budget screen offers three tiers, and users adjust instead of starting from zero.</p></div>
+      <div class="goal"><i>2 · Experience problem</i><b>The old flow asked for too many decisions at once</b><p>The 4-step flow put schedule, budget, platform settings and audience together, with many fields, buttons and decisions on one screen. <b>Response:</b> 6 steps with one decision each, and parts that appear one after another (progressive disclosure).</p></div>
+      <div class="goal"><i>3 · Consequence</i><b>Key fields skipped or guessed, campaigns abandoned</b><p>Beginners <b>froze, guessed or skipped</b> key fields like audience and forecast. That led to wrong targeting, wasted budget or abandoned campaigns, and only one in three launched. <b>Response:</b> Next stays locked until the key fields are filled, and the hint names the exact problem (validation).</p></div>
+    </div>
+  </div>
+  <div class="text">
     <h3>A first baseline</h3>
     <p>From 8 to 28 Oct 2026, among people who started their first campaign in the 4-step flow (production users only, test and internal accounts removed), one in three launched it. The sample is small, so I read these numbers as a starting point to compare against, not as a statistically reliable figure.</p>
   </div>

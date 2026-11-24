@@ -354,7 +354,7 @@ html.stlock{overflow:hidden}
   </div>
   <div class="wide">
     <div class="goals">
-      <div class="goal"><i>Vấn đề</i><b>Người mới phải quyết định quá nhiều thứ cùng lúc</b><p>Ở flow 4 bước cũ, mỗi bước dồn quá nhiều trường, nút và quyết định. Chủ doanh nghiệp nhỏ chưa từng chạy quảng cáo bị đứng hình, đoán mò hoặc bỏ qua các trường quan trọng.</p></div>
+      <div class="goal"><i>Vấn đề</i><b>Người mới thiếu kiến thức, còn flow thì đòi hỏi quá nhiều cùng lúc</b><p>Chủ doanh nghiệp nhỏ chưa từng chạy quảng cáo không biết cách chọn đối tượng và ngân sách. Flow 4 bước cũ lại dồn quá nhiều trường, nút và quyết định, nên họ bị đứng hình, đoán mò hoặc bỏ qua các trường quan trọng.</p></div>
       <div class="goal"><i>Vai trò</i><b>Mình phụ trách UX, UI và component</b><p>Team Hàn Quốc chạy phỏng vấn người dùng, mình tổng hợp insight. Mình đảm nhận UX, UI, variable và component trong Figma, có hỗ trợ Manual QA. Ai quyết định phần nào được chia rõ ngay bên dưới.</p></div>
       <div class="goal"><i>Hành động</i><b>Prototype trước, thiết kế sau</b><p>Mình dựng prototype HTML 6 bước bằng Claude, chốt thứ tự bước cùng dev qua nhiều vòng, rồi thiết kế từng bước, các state lỗi và design system trong Figma. Mỗi bước một quyết định; ad copy giờ đi trước Audience.</p></div>
       <div class="goal"><i>Kết quả</i><b>Đã ra mắt 28/10/2026, đang đo</b><p>Mốc cần vượt: 33% người bắt đầu tạo campaign đầu tiên launch được, thời gian trung vị 21,5 phút (flow 4 bước). Dữ liệu sau ra mắt chưa đủ để kết luận. Cách đo nằm ở mục 07.</p></div>
@@ -439,13 +439,23 @@ html.stlock{overflow:hidden}
       </div>
       <div class="layer">
         <p class="kicker">Mình tổng hợp</p>
-        <h3>Tách thành hai lớp vấn đề</h3>
-        <ul><li>Lớp 1, việc chạy quảng cáo: thiếu kiến thức để chọn đối tượng và ngân sách; mỗi nền tảng một bộ thuật ngữ.</li><li>Lớp 2, chính flow 4 bước: mỗi bước có quá nhiều hành động, thông tin và nút.</li></ul>
+        <h3>Hai vấn đề trông như một</h3>
+        <ul><li>Thiếu kiến thức chạy quảng cáo và một flow đòi hỏi quá nhiều có nguyên nhân khác nhau.</li><li>Nên cần cách giải khác nhau. Ba phần của vấn đề được trình bày bên dưới.</li></ul>
       </div>
     </div>
   </div>
   <div class="text">
-    <p class="impact">Với người mới, hệ quả là <span>đứng hình, điền bừa hoặc bỏ qua</span> các trường quan trọng như audience và forecast, dẫn đến chạy sai đối tượng, lãng phí ngân sách hoặc bỏ giữa chừng.</p>
+    <h3>Vấn đề gồm ba phần</h3>
+    <p>Mỗi phần dẫn đến một phần khác của giải pháp, nên cách giải không chỉ là "thêm bước".</p>
+  </div>
+  <div class="wide">
+    <div class="goals three">
+      <div class="goal"><i>1 · Vấn đề của người dùng</i><b>Người mới không tự thiết lập được campaign</b><p>Chủ doanh nghiệp nhỏ chưa từng chạy quảng cáo không biết cách chọn đối tượng và ngân sách, và mỗi nền tảng gọi cùng một thứ bằng một tên khác. <b>Cách giải:</b> AI gợi ý đối tượng, màn ngân sách đưa ra ba mức, người dùng chỉ chỉnh thay vì bắt đầu từ con số không.</p></div>
+      <div class="goal"><i>2 · Vấn đề trải nghiệm</i><b>Flow cũ đòi quyết định quá nhiều cùng lúc</b><p>Flow 4 bước gộp lịch, ngân sách, cài đặt nền tảng và đối tượng lại, với nhiều trường, nút và quyết định trên một màn hình. <b>Cách giải:</b> 6 bước, mỗi bước một quyết định, và các phần hiện lần lượt từng cái (progressive disclosure).</p></div>
+      <div class="goal"><i>3 · Hệ quả</i><b>Bỏ qua hoặc điền bừa trường quan trọng, bỏ campaign giữa chừng</b><p>Người mới <b>đứng hình, điền bừa hoặc bỏ qua</b> các trường quan trọng như audience và forecast. Điều đó dẫn đến chạy sai đối tượng, lãng phí ngân sách hoặc bỏ giữa chừng, và chỉ một trong ba người launch. <b>Cách giải:</b> Next bị khóa cho đến khi điền đủ trường quan trọng, và gợi ý nói rõ lỗi cụ thể (validation).</p></div>
+    </div>
+  </div>
+  <div class="text">
     <h3>Một mốc tham chiếu ban đầu</h3>
     <p>Từ 8 đến 28/10/2026, trong số người bắt đầu campaign đầu tiên ở flow 4 bước (chỉ tính user production, đã loại tài khoản test và nội bộ), cứ ba người thì có một người launch. Mẫu này còn nhỏ, nên mình xem hai con số này là mốc để so sánh, không phải số liệu đủ tin cậy về mặt thống kê.</p>
   </div>
