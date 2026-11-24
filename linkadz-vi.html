@@ -355,9 +355,20 @@ html.stlock{overflow:hidden}
   <div class="wide">
     <div class="goals">
       <div class="goal"><i>Vấn đề</i><b>Người mới phải quyết định quá nhiều thứ cùng lúc</b><p>Ở flow 4 bước cũ, mỗi bước dồn quá nhiều trường, nút và quyết định. Chủ doanh nghiệp nhỏ chưa từng chạy quảng cáo bị đứng hình, đoán mò hoặc bỏ qua các trường quan trọng.</p></div>
-      <div class="goal"><i>Vai trò</i><b>Mình phụ trách UX, UI và component</b><p>Team Hàn Quốc chạy phỏng vấn người dùng, mình tổng hợp insight. Mình đảm nhận UX, UI, variable và component trong Figma, có hỗ trợ Manual QA. Thứ tự các bước chốt cùng dev, CTO và Director góp ý cho từng phiên bản.</p></div>
+      <div class="goal"><i>Vai trò</i><b>Mình phụ trách UX, UI và component</b><p>Team Hàn Quốc chạy phỏng vấn người dùng, mình tổng hợp insight. Mình đảm nhận UX, UI, variable và component trong Figma, có hỗ trợ Manual QA. Ai quyết định phần nào được chia rõ ngay bên dưới.</p></div>
       <div class="goal"><i>Hành động</i><b>Prototype trước, thiết kế sau</b><p>Mình dựng prototype HTML 6 bước bằng Claude, chốt thứ tự bước cùng dev qua nhiều vòng, rồi thiết kế từng bước, các state lỗi và design system trong Figma. Mỗi bước một quyết định; ad copy giờ đi trước Audience.</p></div>
       <div class="goal"><i>Kết quả</i><b>Đã ra mắt 28/10/2026, đang đo</b><p>Mốc cần vượt: 33% người bắt đầu tạo campaign đầu tiên launch được, thời gian trung vị 21,5 phút (flow 4 bước). Dữ liệu sau ra mắt chưa đủ để kết luận. Cách đo nằm ở mục 07.</p></div>
+    </div>
+  </div>
+  <div class="text">
+    <h3>Ai quyết định phần nào</h3>
+    <p>Đây là flow làm theo team, nên mình nói rõ phần của mình bắt đầu và dừng ở đâu.</p>
+  </div>
+  <div class="wide">
+    <div class="goals three">
+      <div class="goal"><i>Mình quyết định</i><b>Từng màn hình hoạt động thế nào</b><p>Bố cục và một quyết định duy nhất của mỗi bước, các state lỗi, loading, bị khóa và trống, prototype HTML 6 bước, và variable cùng component trong Figma.</p></div>
+      <div class="goal"><i>Quyết định cùng nhau</i><b>Thứ tự các bước, cùng dev</b><p>Thứ tự 6 bước, gồm cả việc đặt nội dung quảng cáo trước Audience, được chốt cùng dev qua nhiều vòng, lấy prototype làm thứ để cùng phản hồi.</p></div>
+      <div class="goal"><i>Đầu vào mình nhận</i><b>Phỏng vấn và góp ý</b><p>Team Hàn Quốc chạy phỏng vấn người dùng, CTO gửi phản hồi về Việt Nam. CTO, Director và FE developer góp ý cho từng phiên bản. Mình không trực tiếp chạy phỏng vấn.</p></div>
     </div>
   </div>
   <div class="text">
@@ -636,9 +647,19 @@ html.stlock{overflow:hidden}
 <section id="system">
   <div class="wide"><div class="sec-head"><span class="sec-no">06</span><h2>Design system: làm một lần, dùng cho mọi màn hình</h2></div></div>
   <div class="text">
-    <p class="lede">Mọi màn hình ở trên đều được ghép từ một thư viện Figma, nên sửa một token hay một component là cập nhật được tất cả.</p>
-    <p><b>Thư viện gồm.</b> 12 bộ variable, 77 component set với 1.671 variant, 34 text style và 76 color style. Mình làm variable và component cho cả app, không chỉ cho flow này.</p>
+    <p class="lede">Mình làm một thư viện Figma để 6 bước cùng mọi state của chúng được thiết kế mà không phải vẽ lại những phần giống nhau. Đây là vấn đề nó giải quyết. Toàn bộ thư viện được gập lại ở bên dưới.</p>
   </div>
+  <div class="wide">
+    <div class="goals three">
+      <div class="goal"><i>Vì sao</i><b>Sáu bước, mỗi bước nhiều state</b><p>Mỗi bước có state mặc định, lỗi, loading, bị khóa và trống. Nếu vẽ từng màn hình, cùng một nút hay một ô nhập có thể lệch nhau giữa các bước, và mỗi lần sửa phải làm lại nhiều chỗ.</p></div>
+      <div class="goal"><i>Làm gì</i><b>Token và variant, không copy</b><p>Màu đi qua bốn lớp, nên component không bao giờ giữ mã hex. Mỗi component mang size, state và hierarchy dưới dạng variant, và một text style chuyển được giữa Desktop và Mobile.</p></div>
+      <div class="goal"><i>Tác dụng</i><b>Sửa một chỗ, mọi màn hình đổi theo</b><p>Đổi một token hay một component là cập nhật được tất cả màn hình. Mình thêm được state lỗi, loading và bị khóa cho cả sáu bước mà không phải nghĩ ra nút mới. Mình chưa đo thời gian tiết kiệm hay số lỗi giảm, nên không đưa con số nào cho phần này.</p></div>
+    </div>
+  </div>
+  <div class="text">
+    <p>Để hình dung quy mô: 12 bộ variable, 77 component set với 1.671 variant, 34 text style và 76 color style, làm cho cả app chứ không chỉ cho flow này.</p>
+  </div>
+<details class="flowd"><summary><span class="fd-b">Mở chi tiết design system</span></summary>
   <div class="wide">
     <figure class="shot">
       <div class="frame"><img src="ds/ds1_overview.jpg" alt="Tổng quan design system: số lượng và bốn lớp token" width="1600" height="1176" loading="lazy"></div>
@@ -701,8 +722,7 @@ html.stlock{overflow:hidden}
       <figcaption>Clip: component Loading Frame chạy qua 12 phase (10 khung hình/giây trong clip này), rồi kết quả hiện ra. Dài 8 giây, lặp lại.</figcaption>
     </figure>
   </div>
-  <div class="text">
-  </div>
+</details>
 </section>
 
 <section id="result">

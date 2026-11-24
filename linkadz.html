@@ -355,9 +355,20 @@ html.stlock{overflow:hidden}
   <div class="wide">
     <div class="goals">
       <div class="goal"><i>Problem</i><b>Beginners face too many decisions at once</b><p>In the old 4-step flow, each step packed in too many fields, buttons and decisions. Small business owners who have never run an ad froze, guessed or skipped key fields.</p></div>
-      <div class="goal"><i>Role</i><b>I owned the UX, UI and components</b><p>The Korea team ran the user interviews and I synthesized the insights. I owned UX, UI, variables and components in Figma, with Manual QA support. The step order was decided together with developers, and the CTO and Director gave feedback on each version.</p></div>
+      <div class="goal"><i>Role</i><b>I owned the UX, UI and components</b><p>The Korea team ran the user interviews and I synthesized the insights. I owned UX, UI, variables and components in Figma, with Manual QA support. Who decided what is set out just below.</p></div>
       <div class="goal"><i>Action</i><b>Prototype first, then design</b><p>I built a 6-step HTML prototype with Claude, settled the step order with developers over several rounds, then designed every step, its error states and the design system in Figma. One decision per step; ad copy now comes before Audience.</p></div>
       <div class="goal"><i>Result</i><b>Shipped 28 Oct 2026, measuring now</b><p>Baseline to beat: 33% of users who start launch their first campaign, median 21.5 min (4-step flow). Post-launch data is not enough to draw conclusions yet. How I measure it is in section 07.</p></div>
+    </div>
+  </div>
+  <div class="text">
+    <h3>Who decided what</h3>
+    <p>This was a team flow, so here is where my part starts and stops.</p>
+  </div>
+  <div class="wide">
+    <div class="goals three">
+      <div class="goal"><i>I decided</i><b>How each screen works</b><p>The layout and the single decision of every step, the error, loading, locked and empty states, the 6-step HTML prototype, and the variables and components in Figma.</p></div>
+      <div class="goal"><i>Decided together</i><b>The step order, with developers</b><p>The 6-step order, including ad copy before Audience, was settled with developers over several rounds, using the prototype as the thing to react to.</p></div>
+      <div class="goal"><i>Input I received</i><b>Interviews and feedback</b><p>The Korea team ran the user interviews, and the CTO sent the feedback to Vietnam. The CTO, the Director and the FE developer gave feedback on each version. I did not run the interviews.</p></div>
     </div>
   </div>
   <div class="text">
@@ -636,9 +647,19 @@ html.stlock{overflow:hidden}
 <section id="system">
   <div class="wide"><div class="sec-head"><span class="sec-no">06</span><h2>Design system: built once, used on every screen</h2></div></div>
   <div class="text">
-    <p class="lede">Every screen above is assembled from one Figma library, so a change to a token or a component reaches all of them.</p>
-    <p><b>What it holds.</b> 12 variable collections, 77 component sets with 1,671 variants, 34 text styles and 76 color styles. I built the variables and components for the whole app, not only for this flow.</p>
+    <p class="lede">I built one Figma library so that six steps and all their states could be designed without redrawing the same parts. Here is the problem it solved. The full library is folded below.</p>
   </div>
+  <div class="wide">
+    <div class="goals three">
+      <div class="goal"><i>Why</i><b>Six steps, each with many states</b><p>Every step has default, error, loading, locked and empty states. Drawn screen by screen, the same button or field could drift between steps, and every fix would have to be repeated.</p></div>
+      <div class="goal"><i>What</i><b>Tokens and variants, not copies</b><p>Color goes through four layers, so a component never holds a hex value. Each component carries size, state and hierarchy as variants, and one text style switches between Desktop and Mobile.</p></div>
+      <div class="goal"><i>Effect</i><b>One change reaches every screen</b><p>Changing a token or a component updates all screens. I could add error, loading and locked states to all six steps without inventing new buttons. I have not measured time saved or fewer bugs, so I give no number for that.</p></div>
+    </div>
+  </div>
+  <div class="text">
+    <p>For scale: 12 variable collections, 77 component sets with 1,671 variants, 34 text styles and 76 color styles, built for the whole app and not only for this flow.</p>
+  </div>
+<details class="flowd"><summary><span class="fd-b">Open the design system details</span></summary>
   <div class="wide">
     <figure class="shot">
       <div class="frame"><img src="ds/ds1_overview.jpg" alt="Design system overview: counts and the four token layers" width="1600" height="1176" loading="lazy"></div>
@@ -701,8 +722,7 @@ html.stlock{overflow:hidden}
       <figcaption>Clip: the Loading Frame component played through its 12 phases (10 frames per second in this clip), then the result pops in. 8 seconds, loops.</figcaption>
     </figure>
   </div>
-  <div class="text">
-  </div>
+</details>
 </section>
 
 <section id="result">
