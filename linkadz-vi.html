@@ -731,17 +731,17 @@ html.stlock{overflow:hidden}
 <section id="system">
   <div class="wide"><div class="sec-head"><span class="sec-no">06</span><h2>Design system: làm một lần, dùng cho mọi màn hình</h2></div></div>
   <div class="text">
-    <p class="lede">Mình làm một thư viện Figma để 6 bước cùng mọi state của chúng được thiết kế mà không phải vẽ lại những phần giống nhau. Đây là vấn đề nó giải quyết. Toàn bộ thư viện được gập lại ở bên dưới.</p>
+    <p class="lede">Đằng sau các màn hình này là một thư viện Figma. Sáu bước, mỗi bước có state mặc định, lỗi, loading, bị khóa và trống, nếu không có thư viện thì sẽ phải vẽ từng màn một. Đây là ba phần quan trọng nhất. Phần còn lại được gập lại bên dưới.</p>
   </div>
   <div class="wide">
     <div class="goals three">
-      <div class="goal"><i>Vì sao</i><b>Sáu bước, mỗi bước nhiều state</b><p>Mỗi bước có state mặc định, lỗi, loading, bị khóa và trống. Nếu vẽ từng màn hình, cùng một nút hay một ô nhập có thể lệch nhau giữa các bước, và mỗi lần sửa phải làm lại nhiều chỗ.</p></div>
-      <div class="goal"><i>Làm gì</i><b>Token và variant, không copy</b><p>Màu đi qua bốn lớp, nên component không bao giờ giữ mã hex. Mỗi component mang size, state và hierarchy dưới dạng variant, và một text style chuyển được giữa Desktop và Mobile.</p></div>
-      <div class="goal"><i>Tác dụng</i><b>Sửa một chỗ, mọi màn hình đổi theo</b><p>Đổi một token hay một component là cập nhật được tất cả màn hình. Mình thêm được state lỗi, loading và bị khóa cho cả sáu bước mà không phải nghĩ ra nút mới. Mình chưa đo thời gian tiết kiệm hay số lỗi giảm, nên không đưa con số nào cho phần này.</p></div>
+      <div class="goal"><i>1 · Kiến trúc token</i><b>Đổi một lần, mọi màn hình đổi theo</b><p>Màu đi qua bốn lớp, nên component không bao giờ giữ mã hex. Đổi màu thương hiệu, hoặc chuyển từ Light sang Dark, là cập nhật mọi component mà không phải mở màn hình nào. Chữ cũng vậy: một text style chuyển được giữa Desktop và Mobile.</p></div>
+      <div class="goal"><i>2 · Variant của component</i><b>Một state là một variant, không phải một bản vẽ mới</b><p>Mỗi component mang size, state và hierarchy dưới dạng variant. Riêng Creative Card có 12 state, và Button là 4 hierarchy × 5 state × 5 size. Nhờ vậy mình thêm được state lỗi, loading, bị khóa và trống cho cả sáu bước mà không phải nghĩ ra nút mới.</p></div>
+      <div class="goal"><i>3 · Quy tắc responsive</i><b>Một quy tắc thay vì vẽ lại 193 frame</b><p>FE developer chỉ ra màn hình lớn bị thừa chỗ: card cố định 960px, nên ở 1920px mỗi bên trống khoảng 360px. Mình viết một quy tắc về độ rộng thay vì vẽ frame mới cho từng cỡ, nên 193 frame hiện có được giữ nguyên. Cái giá: Figma không có frame 1920, developer đọc quy tắc từ phần annotation. <a href="#feedback">Xem quy tắc ở từng cỡ màn hình</a></p></div>
     </div>
   </div>
   <div class="text">
-    <p>Để hình dung quy mô: 12 bộ variable, 77 component set với 1.671 variant, 34 text style và 76 color style, làm cho cả app chứ không chỉ cho flow này.</p>
+    <p>Để hình dung quy mô: 12 bộ variable, 77 component set với 1.671 variant, 34 text style và 76 color style, làm cho cả app chứ không chỉ cho flow này. Mình chưa đo thời gian tiết kiệm hay số lỗi giảm, nên không đưa con số nào cho phần này.</p>
   </div>
 <details class="flowd"><summary><span class="fd-b">Mở chi tiết design system</span></summary>
   <div class="wide">

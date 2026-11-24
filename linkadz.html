@@ -731,17 +731,17 @@ html.stlock{overflow:hidden}
 <section id="system">
   <div class="wide"><div class="sec-head"><span class="sec-no">06</span><h2>Design system: built once, used on every screen</h2></div></div>
   <div class="text">
-    <p class="lede">I built one Figma library so that six steps and all their states could be designed without redrawing the same parts. Here is the problem it solved. The full library is folded below.</p>
+    <p class="lede">Behind these screens is one Figma library. Six steps, each with default, error, loading, locked and empty states, would otherwise be drawn screen by screen. These are the three parts that mattered most. The rest is folded below.</p>
   </div>
   <div class="wide">
     <div class="goals three">
-      <div class="goal"><i>Why</i><b>Six steps, each with many states</b><p>Every step has default, error, loading, locked and empty states. Drawn screen by screen, the same button or field could drift between steps, and every fix would have to be repeated.</p></div>
-      <div class="goal"><i>What</i><b>Tokens and variants, not copies</b><p>Color goes through four layers, so a component never holds a hex value. Each component carries size, state and hierarchy as variants, and one text style switches between Desktop and Mobile.</p></div>
-      <div class="goal"><i>Effect</i><b>One change reaches every screen</b><p>Changing a token or a component updates all screens. I could add error, loading and locked states to all six steps without inventing new buttons. I have not measured time saved or fewer bugs, so I give no number for that.</p></div>
+      <div class="goal"><i>1 · Token architecture</i><b>Change once, every screen follows</b><p>Color goes through four layers, so a component never holds a hex value. Changing the brand color, or switching Light to Dark, updates every component without opening a screen. Type works the same way: one text style switches between Desktop and Mobile.</p></div>
+      <div class="goal"><i>2 · Component variants</i><b>A state is a variant, not a new drawing</b><p>Each component carries size, state and hierarchy as variants. The Creative Card alone has 12 states, and Button is 4 hierarchies × 5 states × 5 sizes. That is how I added error, loading, locked and empty states to all six steps without inventing new buttons.</p></div>
+      <div class="goal"><i>3 · Responsive rule</i><b>One rule instead of redrawing 193 frames</b><p>The FE developer pointed out wasted space on big screens: the card was fixed at 960px, so at 1920px about 360px was empty on each side. I wrote one width rule instead of new frames per size, so the 193 existing frames stayed as they were. The cost: there is no 1920 frame in Figma, so developers read the annotations. <a href="#feedback">See the rule at each screen size</a></p></div>
     </div>
   </div>
   <div class="text">
-    <p>For scale: 12 variable collections, 77 component sets with 1,671 variants, 34 text styles and 76 color styles, built for the whole app and not only for this flow.</p>
+    <p>For scale: 12 variable collections, 77 component sets with 1,671 variants, 34 text styles and 76 color styles, built for the whole app and not only for this flow. I have not measured time saved or fewer bugs, so I give no number for that.</p>
   </div>
 <details class="flowd"><summary><span class="fd-b">Open the design system details</span></summary>
   <div class="wide">
