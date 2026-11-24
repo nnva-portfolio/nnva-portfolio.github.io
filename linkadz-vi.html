@@ -320,7 +320,7 @@ html.stlock{overflow:hidden}
 </style>
 <style>.ba-view[hidden],.sf-v[hidden]{display:none !important}</style>
 <link rel="stylesheet" href="ds.css?v=20261119b">
-<link rel="stylesheet" href="rhythm.css?v=20261124a">
+<link rel="stylesheet" href="rhythm.css?v=20261124b">
 </head>
 <body>
 <nav class="top ctl" aria-label="Language and theme"><div><span class='lang'><a href='linkadz.html'>EN</a><a class='on' aria-current='true'>VN</a></span><button class='mode' id='theme' type='button' aria-label='Đổi chế độ sáng và tối'><svg class='moon' viewBox='0 0 24 24' aria-hidden='true'><path d='M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z'/></svg><svg class='sun' viewBox='0 0 24 24' aria-hidden='true'><circle cx='12' cy='12' r='4'/><path d='M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'/></svg></button></div></nav>
@@ -691,7 +691,7 @@ html.stlock{overflow:hidden}
 <section id="system">
   <div class="wide"><div class="sec-head"><span class="sec-no">06</span><h2>Design system: làm một lần, dùng cho mọi màn hình</h2></div></div>
   <div class="text">
-    <p class="lede">Đằng sau các màn hình này là một thư viện Figma. Sáu bước, mỗi bước có state mặc định, lỗi, loading, bị khóa và trống, nếu không có thư viện thì sẽ phải vẽ từng màn một. Đây là ba phần quan trọng nhất. Phần còn lại được gập lại bên dưới.</p>
+    <p class="lede">Đằng sau các màn hình này là một thư viện Figma. Sáu bước, mỗi bước có state mặc định, lỗi, loading, bị khóa và trống, nếu không có thư viện thì sẽ phải vẽ từng màn một. Đây là ba phần quan trọng nhất. Phần còn lại mở trong một cửa sổ bên dưới.</p>
   </div>
   <div class="wide">
     <div class="goals three">
@@ -703,13 +703,17 @@ html.stlock{overflow:hidden}
   <div class="text">
     <p>Để hình dung quy mô: 12 bộ variable, 77 component set với 1.671 variant, 34 text style và 76 color style, làm cho cả app chứ không chỉ cho flow này. Mình chưa đo thời gian tiết kiệm hay số lỗi giảm, nên không đưa con số nào cho phần này.</p>
   </div>
-<details class="flowd dsd"><summary><span class="dsd-card"><span><b>Xem toàn bộ design system</b><small>Các lớp token, variant của component, component creative và state loading. 6 hình và 1 clip.</small></span><span class="dsd-act"><span class="o">Mở</span><span class="c">Thu gọn</span></span></span></summary>
+<div class="text dsd-wrap"><button type="button" class="dsd-open" id="dsopen" aria-haspopup="dialog" aria-controls="dsdlg" aria-expanded="false"><span class="dsd-card"><span><b>Xem toàn bộ design system</b><small>Các lớp token, variant của component, component creative và state loading. 6 hình và 1 clip.</small></span><span class="dsd-act">Mở</span></span></button></div>
+<div class="stdlg" id="dsdlg" role="dialog" aria-modal="true" aria-label="Design system"><div class="stdlg-win" tabindex="-1"><div class="stdlg-bar"><span class="stdlg-ttl">Design system</span><div class="stdlg-tabs" role="tablist"><button type="button" role="tab" data-i="1"><i>1</i><span>Tổng quan</span></button><button type="button" role="tab" data-i="2"><i>2</i><span>Token</span></button><button type="button" role="tab" data-i="3"><i>3</i><span>Component</span></button><button type="button" role="tab" data-i="4"><i>4</i><span>Trong sản phẩm</span></button><button type="button" role="tab" data-i="5"><i>5</i><span>Creative</span></button><button type="button" role="tab" data-i="6"><i>6</i><span>Loading</span></button></div><button type="button" class="stdlg-x" aria-label="Đóng">&times;</button></div><div class="stdlg-body">
+<div class="stpanel" data-i="1">
   <div class="wide">
     <figure class="shot">
       <div class="frame"><img src="ds/ds1_overview.jpg" alt="Tổng quan design system: số lượng và bốn lớp token" width="1600" height="1176" loading="lazy"></div>
       <figcaption>Tổng quan: thư viện có gì và token nối từ màu gốc đến component như thế nào</figcaption>
     </figure>
   </div>
+</div>
+<div class="stpanel" data-i="2" hidden>
   <div class="text">
     <h3>Token trỏ về lớp trước nó</h3>
     <p>Màu đi qua bốn lớp: Global Colors, Base Colors, Mode Colors (Light và Dark) và Components Color. Component không bao giờ chứa mã hex. Đổi màu thương hiệu hoặc chuyển sang Dark thì mọi component tự cập nhật mà không phải mở từng màn hình. Chữ cũng vậy: một text style tự đổi giữa Desktop và Mobile qua bộ Typography Configuration.</p>
@@ -720,6 +724,8 @@ html.stlock{overflow:hidden}
       <figcaption>Nền tảng: dải màu và thang chữ (ở đây hiển thị bằng Inter; app dùng Pretendard)</figcaption>
     </figure>
   </div>
+</div>
+<div class="stpanel" data-i="3" hidden>
   <div class="text">
     <h3>Dùng variant thay vì vẽ lại</h3>
     <p>Mỗi component mang sẵn size, state và hierarchy dưới dạng variant, nên màn hình chỉ chọn tổ hợp cần dùng thay vì vẽ mới. Nhờ vậy mình thêm được các trạng thái lỗi, loading, bị khóa và rỗng cho cả sáu bước mà không phải nghĩ thêm nút mới. Stepper là một component, mỗi bước là một variant.</p>
@@ -730,6 +736,8 @@ html.stlock{overflow:hidden}
       <figcaption>Component: Button (4 hierarchy × 5 state × 5 size), Input, nhóm điều khiển chọn, Tabs và Stepper 6 bước</figcaption>
     </figure>
   </div>
+</div>
+<div class="stpanel" data-i="4" hidden>
   <div class="text">
     <h3>Từ phần nhỏ đến tính năng</h3>
     <p>Component xếp thành ba tầng: UI component (46 set), card và module (22) và feature (9). Creative Source Panel, Campaign Card và bộ chọn đối tượng đều được ghép từ cùng các nút, ô nhập và badge ở trên.</p>
@@ -740,6 +748,8 @@ html.stlock{overflow:hidden}
       <figcaption>Trong sản phẩm: Creative Source Panel (tab AI Studio), Campaign Card và bộ chọn đối tượng (dữ liệu mẫu, đã thay tên thương hiệu)</figcaption>
     </figure>
   </div>
+</div>
+<div class="stpanel" data-i="5" hidden>
   <div class="text">
     <h3>Một khung cho mọi creative</h3>
     <p>Creative Source Panel thêm ảnh, video và kết quả AI, Creative Card hiển thị chúng, còn Media Tile là bản nhỏ trong lưới asset. Mỗi cái có state default, hover, pressed, focus, uploading và lỗi. Nhãn AI là một boolean trên card, không tách thành variant theo từng nguồn.</p>
@@ -750,6 +760,8 @@ html.stlock{overflow:hidden}
       <figcaption>Creative components: Source Panel (3 tab), Media Tile, 12 state của Creative Card và quy tắc khung 16:9</figcaption>
     </figure>
   </div>
+</div>
+<div class="stpanel" data-i="6" hidden>
   <div class="text">
     <h3>App chờ như thế nào</h3>
     <p>AI chạy mất vài giây, nên mỗi lần chờ là một component có state riêng: scan trang cho thấy AI đang đọc gì, các dòng tick dần, dot wave tối khi AI đang tạo và border beam cam khi file đang upload. Dot wave và beam là cùng một component Loading Frame với 12 phase.</p>
@@ -766,7 +778,10 @@ html.stlock{overflow:hidden}
       <figcaption>Clip: component Loading Frame chạy qua 12 phase (10 khung hình/giây trong clip này), rồi kết quả hiện ra. Dài 8 giây, lặp lại.</figcaption>
     </figure>
   </div>
-</details>
+
+</div>
+</div></div></div>
+
 </section>
 
 <section id="result">
@@ -892,6 +907,26 @@ d.addEventListener('keydown',function(e){if(!dlg.classList.contains('open')||d.q
 /* one short demo the first time the folder scrolls into view */
 if('IntersectionObserver' in window&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)){
  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){io.disconnect();setTimeout(function(){fold.classList.add('demo');setTimeout(function(){fold.classList.remove('demo')},1500)},350)}})},{threshold:.7});io.observe(fold)}
+})();
+</script>
+<script>
+(function(){var d=document,dlg=d.getElementById('dsdlg'),btn=d.getElementById('dsopen');if(!dlg||!btn)return;
+d.body.appendChild(dlg);
+var panels=[].slice.call(dlg.querySelectorAll('.stpanel')),tabs=[].slice.call(dlg.querySelectorAll('.stdlg-tabs button')),body=dlg.querySelector('.stdlg-body'),win=dlg.querySelector('.stdlg-win'),cur=0,last=null;
+function pick(i){cur=i;panels.forEach(function(p,j){p.hidden=j!==i});tabs.forEach(function(t,j){var on=j===i;t.classList.toggle('on',on);t.setAttribute('aria-selected',on?'true':'false')});body.scrollTop=0;
+ [].forEach.call(panels[i].querySelectorAll('.shot,.layer,.goal,.decision,.tablebox,.pull,.bars,.track div'),function(e){e.classList.add('in')});
+ [].forEach.call(panels[i].querySelectorAll('video[data-autoplay]'),function(v){try{v.play()}catch(e){}});
+ var t=tabs[i];if(t&&t.scrollIntoView)t.scrollIntoView({block:'nearest',inline:'center'})}
+function open(){last=d.activeElement;pick(0);dlg.classList.add('open');btn.setAttribute('aria-expanded','true');d.documentElement.classList.add('stlock');win.focus({preventScroll:true})}
+function close(){dlg.classList.remove('open');btn.setAttribute('aria-expanded','false');d.documentElement.classList.remove('stlock');[].forEach.call(dlg.querySelectorAll('video'),function(v){try{v.pause()}catch(e){}});if(last&&last.focus)last.focus({preventScroll:true})}
+btn.addEventListener('click',open);
+tabs.forEach(function(t,i){t.addEventListener('click',function(){pick(i)})});
+dlg.querySelector('.stdlg-x').addEventListener('click',close);
+dlg.addEventListener('click',function(e){if(e.target===dlg)close()});
+d.addEventListener('keydown',function(e){if(!dlg.classList.contains('open')||d.querySelector('.lb.open'))return;
+ if(e.key==='Escape')close();
+ else if(e.key==='ArrowRight'&&cur<panels.length-1)pick(cur+1);
+ else if(e.key==='ArrowLeft'&&cur>0)pick(cur-1)},true);
 })();
 </script>
 <script src="logo.js?v=20261119"></script>

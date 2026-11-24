@@ -320,7 +320,7 @@ html.stlock{overflow:hidden}
 </style>
 <style>.ba-view[hidden],.sf-v[hidden]{display:none !important}</style>
 <link rel="stylesheet" href="ds.css?v=20261119b">
-<link rel="stylesheet" href="rhythm.css?v=20261124a">
+<link rel="stylesheet" href="rhythm.css?v=20261124b">
 </head>
 <body>
 <nav class="top ctl" aria-label="Language and theme"><div><span class='lang'><a class='on' aria-current='true'>EN</a><a href='linkadz-vi.html'>VN</a></span><button class='mode' id='theme' type='button' aria-label='Toggle light and dark mode'><svg class='moon' viewBox='0 0 24 24' aria-hidden='true'><path d='M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z'/></svg><svg class='sun' viewBox='0 0 24 24' aria-hidden='true'><circle cx='12' cy='12' r='4'/><path d='M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'/></svg></button></div></nav>
@@ -691,7 +691,7 @@ html.stlock{overflow:hidden}
 <section id="system">
   <div class="wide"><div class="sec-head"><span class="sec-no">06</span><h2>Design system: built once, used on every screen</h2></div></div>
   <div class="text">
-    <p class="lede">Behind these screens is one Figma library. Six steps, each with default, error, loading, locked and empty states, would otherwise be drawn screen by screen. These are the three parts that mattered most. The rest is folded below.</p>
+    <p class="lede">Behind these screens is one Figma library. Six steps, each with default, error, loading, locked and empty states, would otherwise be drawn screen by screen. These are the three parts that mattered most. The rest opens in a pop-up below.</p>
   </div>
   <div class="wide">
     <div class="goals three">
@@ -703,13 +703,17 @@ html.stlock{overflow:hidden}
   <div class="text">
     <p>For scale: 12 variable collections, 77 component sets with 1,671 variants, 34 text styles and 76 color styles, built for the whole app and not only for this flow. I have not measured time saved or fewer bugs, so I give no number for that.</p>
   </div>
-<details class="flowd dsd"><summary><span class="dsd-card"><span><b>See the full design system</b><small>Token layers, component variants, creative components and loading states. 6 figures and 1 clip.</small></span><span class="dsd-act"><span class="o">Open</span><span class="c">Close</span></span></span></summary>
+<div class="text dsd-wrap"><button type="button" class="dsd-open" id="dsopen" aria-haspopup="dialog" aria-controls="dsdlg" aria-expanded="false"><span class="dsd-card"><span><b>See the full design system</b><small>Token layers, component variants, creative components and loading states. 6 figures and 1 clip.</small></span><span class="dsd-act">Open</span></span></button></div>
+<div class="stdlg" id="dsdlg" role="dialog" aria-modal="true" aria-label="Design system"><div class="stdlg-win" tabindex="-1"><div class="stdlg-bar"><span class="stdlg-ttl">Design system</span><div class="stdlg-tabs" role="tablist"><button type="button" role="tab" data-i="1"><i>1</i><span>Overview</span></button><button type="button" role="tab" data-i="2"><i>2</i><span>Tokens</span></button><button type="button" role="tab" data-i="3"><i>3</i><span>Components</span></button><button type="button" role="tab" data-i="4"><i>4</i><span>In the product</span></button><button type="button" role="tab" data-i="5"><i>5</i><span>Creative</span></button><button type="button" role="tab" data-i="6"><i>6</i><span>Loading</span></button></div><button type="button" class="stdlg-x" aria-label="Close">&times;</button></div><div class="stdlg-body">
+<div class="stpanel" data-i="1">
   <div class="wide">
     <figure class="shot">
       <div class="frame"><img src="ds/ds1_overview.jpg" alt="Design system overview: counts and the four token layers" width="1600" height="1176" loading="lazy"></div>
       <figcaption>Overview: what the library contains and how tokens chain from raw color to component</figcaption>
     </figure>
   </div>
+</div>
+<div class="stpanel" data-i="2" hidden>
   <div class="text">
     <h3>Tokens that point to the layer before them</h3>
     <p>Color goes through four layers: Global Colors, Base Colors, Mode Colors (Light and Dark) and Components Color. A component never holds a hex value. Changing the brand color, or switching to Dark, updates every component without opening a screen. Type works the same way: one text style switches between Desktop and Mobile through the Typography Configuration collection.</p>
@@ -720,6 +724,8 @@ html.stlock{overflow:hidden}
       <figcaption>Foundations: color ramps and the type scale (shown in Inter here; the app uses Pretendard)</figcaption>
     </figure>
   </div>
+</div>
+<div class="stpanel" data-i="3" hidden>
   <div class="text">
     <h3>Variants instead of redrawing</h3>
     <p>Each component carries its size, state and hierarchy as variants, so a screen picks a combination instead of drawing one. This is what let me add the error, loading, locked and empty states across all six steps without inventing new buttons. The Stepper is one component with a variant per step.</p>
@@ -730,6 +736,8 @@ html.stlock{overflow:hidden}
       <figcaption>Components: Button (4 hierarchies × 5 states × 5 sizes), Input, selection controls, Tabs and the 6-step Stepper</figcaption>
     </figure>
   </div>
+</div>
+<div class="stpanel" data-i="4" hidden>
   <div class="text">
     <h3>From small parts to features</h3>
     <p>Components roll up in three tiers: UI components (46 sets), cards and modules (22) and features (9). The Creative Source Panel, the Campaign Card and the audience selector are built from the same buttons, inputs and badges you see above.</p>
@@ -740,6 +748,8 @@ html.stlock{overflow:hidden}
       <figcaption>In the product: Creative Source Panel (AI Studio tab), Campaign Card and audience selector (sample data, brand name replaced)</figcaption>
     </figure>
   </div>
+</div>
+<div class="stpanel" data-i="5" hidden>
   <div class="text">
     <h3>A consistent frame for every creative</h3>
     <p>The Creative Source Panel adds images, videos and AI results, the Creative Card shows them, and the Media Tile is the small version in the asset grid. Each has default, hover, pressed, focus, uploading and error states. The AI label is a boolean on the card, not a variant per source.</p>
@@ -750,6 +760,8 @@ html.stlock{overflow:hidden}
       <figcaption>Creative components: Source Panel (3 tabs), Media Tile, 12 states of the Creative Card and the 16:9 frame rule</figcaption>
     </figure>
   </div>
+</div>
+<div class="stpanel" data-i="6" hidden>
   <div class="text">
     <h3>Designing AI loading states</h3>
     <p>AI work takes seconds, so every wait is a component with its own states: a page scan that shows what the AI is reading, rows that tick off, a dark dot wave while AI creates, and an orange border beam while a file uploads. The dot wave and the beam are one Loading Frame component with 12 phases.</p>
@@ -766,7 +778,10 @@ html.stlock{overflow:hidden}
       <figcaption>Clip: the Loading Frame component played through its 12 phases (10 frames per second in this clip), then the result pops in. 8 seconds, loops.</figcaption>
     </figure>
   </div>
-</details>
+
+</div>
+</div></div></div>
+
 </section>
 
 <section id="result">
@@ -892,6 +907,26 @@ d.addEventListener('keydown',function(e){if(!dlg.classList.contains('open')||d.q
 /* one short demo the first time the folder scrolls into view */
 if('IntersectionObserver' in window&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)){
  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){io.disconnect();setTimeout(function(){fold.classList.add('demo');setTimeout(function(){fold.classList.remove('demo')},1500)},350)}})},{threshold:.7});io.observe(fold)}
+})();
+</script>
+<script>
+(function(){var d=document,dlg=d.getElementById('dsdlg'),btn=d.getElementById('dsopen');if(!dlg||!btn)return;
+d.body.appendChild(dlg);
+var panels=[].slice.call(dlg.querySelectorAll('.stpanel')),tabs=[].slice.call(dlg.querySelectorAll('.stdlg-tabs button')),body=dlg.querySelector('.stdlg-body'),win=dlg.querySelector('.stdlg-win'),cur=0,last=null;
+function pick(i){cur=i;panels.forEach(function(p,j){p.hidden=j!==i});tabs.forEach(function(t,j){var on=j===i;t.classList.toggle('on',on);t.setAttribute('aria-selected',on?'true':'false')});body.scrollTop=0;
+ [].forEach.call(panels[i].querySelectorAll('.shot,.layer,.goal,.decision,.tablebox,.pull,.bars,.track div'),function(e){e.classList.add('in')});
+ [].forEach.call(panels[i].querySelectorAll('video[data-autoplay]'),function(v){try{v.play()}catch(e){}});
+ var t=tabs[i];if(t&&t.scrollIntoView)t.scrollIntoView({block:'nearest',inline:'center'})}
+function open(){last=d.activeElement;pick(0);dlg.classList.add('open');btn.setAttribute('aria-expanded','true');d.documentElement.classList.add('stlock');win.focus({preventScroll:true})}
+function close(){dlg.classList.remove('open');btn.setAttribute('aria-expanded','false');d.documentElement.classList.remove('stlock');[].forEach.call(dlg.querySelectorAll('video'),function(v){try{v.pause()}catch(e){}});if(last&&last.focus)last.focus({preventScroll:true})}
+btn.addEventListener('click',open);
+tabs.forEach(function(t,i){t.addEventListener('click',function(){pick(i)})});
+dlg.querySelector('.stdlg-x').addEventListener('click',close);
+dlg.addEventListener('click',function(e){if(e.target===dlg)close()});
+d.addEventListener('keydown',function(e){if(!dlg.classList.contains('open')||d.querySelector('.lb.open'))return;
+ if(e.key==='Escape')close();
+ else if(e.key==='ArrowRight'&&cur<panels.length-1)pick(cur+1);
+ else if(e.key==='ArrowLeft'&&cur>0)pick(cur-1)},true);
 })();
 </script>
 <script src="logo.js?v=20261119"></script>
