@@ -24,3 +24,6 @@ section>.wide+.wide{margin-top:32px}
   section>.wide+.wide{margin-top:24px}
   .dsd-card{flex-direction:column;align-items:flex-start;padding:18px}
 }
+
+/* closing line at the end of a case study */
+footer.thanks{margin-top:96px;padding:0 0 72px;font-size:16px;line-height:1.5;color:var(--muted,#666)}
