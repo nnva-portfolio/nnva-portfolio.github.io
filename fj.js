@@ -15,7 +15,7 @@
   var arr='<svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8h9M9 4.5L12.5 8 9 11.5"/></svg>';
   var items=cases.map(function(c,i){var on=c.f===page||(!page&&i===0);
     return '<a role="menuitem" class="fj-cs'+(on?' on':'')+'" href="'+c.f+(vi?'-vi':'')+'.html"'+(on?' aria-current="page"':'')+' style="--cc:'+c.c+'">'+
-      '<span class="dot"></span><span class="tx"><b>'+c.t+'</b><small>'+c.k+'</small></span>'+
+      '<span class="tx"><b>'+c.t+'</b><small>'+c.k+'</small></span>'+
       (on?'<span class="here">'+(vi?'Đang xem':'Viewing')+'</span>':arr)+'</a>'}).join('');
   var tl=el('<div class="fj-bar tl"><a class="it nn-hover" href="'+home0+'" aria-label="'+(vi?'Về trang chủ':'Back to home')+'"><span class="nnlogo" data-v="nn"></span>'+(cr?cr.textContent:(vi?'Dự án':'Works'))+'</a><span class="sep"></span>'+
     '<div class="fj-sw"><button type="button" class="it f2" aria-haspopup="menu" aria-expanded="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="2" width="10" height="12" rx="2"/><path d="M6 6h4M6 9h4"/></svg><span class="fn">'+(d.body.dataset.file||'linkadz · case study 01')+'</span>'+chev+'</button>'+
