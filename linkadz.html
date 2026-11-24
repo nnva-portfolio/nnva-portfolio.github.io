@@ -126,6 +126,22 @@ figure{margin:0}
 .stage.new span{background:var(--accent);border-color:var(--accent);color:#fff}
 
 /* ITERATION */
+.dcards{display:grid;gap:20px;margin:28px 0}
+.dcard{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px 30px}
+.dcard header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.dcard .dn{flex:none;width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:700;font-size:14px}
+.dcard h4{margin:0;font-size:21px;line-height:1.25;letter-spacing:-.01em}
+.dcard dl{margin:0}
+.dcard dl>div{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:13px 0;border-top:1px solid var(--line)}
+.dcard dt{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.dcard dd{margin:0;font-size:15.5px;line-height:1.6}
+.dcard dd b{font-weight:650}
+.dcard dd ul{margin:0;padding-left:18px}
+.dcard dd li{margin:2px 0}
+.dcard .pick{background:color-mix(in srgb,var(--accent) 9%,transparent);margin:0 -14px;padding:13px 14px;border-radius:12px;border-top-color:transparent}
+.dcard .pick+div{border-top-color:transparent}
+.dcard .pick dt{color:var(--accent)}
+@media(max-width:640px){.dcard{padding:20px 18px}.dcard dl>div{grid-template-columns:1fr;gap:4px}.dcard .pick{margin:0 -8px;padding:12px 8px}}
 .decision{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:28px;overflow:hidden;margin:40px 0}
 .decision>div{padding:32px}
 .decision>div+div{border-left:1px solid var(--line)}
@@ -373,38 +389,37 @@ html.stlock{overflow:hidden}
   </div>
   <div class="text">
     <h3>The 3 decisions that shaped the flow</h3>
-    <p>If you only have two minutes, read these three. They show what the options were, what I chose and why. The rest of the page is further reading: every step, edge cases and states, and the design system.</p>
+    <p>Three choices shaped this flow. Each one shows the options, what I chose, why, and what it costs. The rest of the page is further reading: every step, edge cases and states, and the design system.</p>
   </div>
   <div class="wide">
-    <div class="decision">
-      <div><p class="kicker">Decision 1 · Options</p><p>Keep 4 steps with as few Next clicks as possible, or split into 6 main steps with one main action at a time.</p></div>
-      <div><p class="kicker">My decision</p><p>6 steps. Every screen should answer one question: "What decision do I need to make here?"</p></div>
-      <div><p class="kicker">Why</p><p>New users froze when one step packed in too many fields and decisions. Fewer steps are not always easier. <a href="#proto">See the 4 to 6 mapping</a></p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Trade-off · Gain</p><p>Fewer decisions on screen at once, so a beginner is never asked to weigh everything together.</p></div>
-      <div><p class="kicker">Trade-off · Cost and risk</p><p>More Next clicks and more screens in total. The flow may feel longer, even if each screen is easier.</p></div>
-      <div><p class="kicker">Trade-off · How I reduce it</p><p>Each step has a clear goal, the stepper shows progress, Next stays locked with a hint that names the exact problem, and changes autosave. Whether it worked is not known yet. Section 07 says how I will check it: time to launch against the 21.5-minute baseline, and where users stop.</p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Decision 2 · Options</p><p>In my first 6-step version, Audience came before Create Ad.</p></div>
-      <div><p class="kicker">My decision</p><p>Move ad copy before Audience.</p></div>
-      <div><p class="kicker">Why</p><p>The AI needs the ad copy to recommend a relevant audience. I found this while testing the HTML prototype, before drawing in Figma. <a href="#proto">See the step order</a></p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Trade-off · Gain</p><p>The AI has the ad copy to read, so it can pre-select an audience and users adjust instead of starting from a blank list.</p></div>
-      <div><p class="kicker">Trade-off · Cost and risk</p><p>Someone who already knows who to reach cannot set the audience first. If the copy changes later, the AI's recommendation may no longer fit.</p></div>
-      <div><p class="kicker">Trade-off · How I reduce it</p><p>Every audience tag can be edited, the summary says in one sentence who the ad will reach, and Back is available.</p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Decision 3 · Options</p><p>The CTO asked for a "Save" button after inline editing.</p></div>
-      <div><p class="kicker">My decision</p><p>Enter or click outside saves (Saving, then Saved), Esc cancels. No Save button.</p></div>
-      <div><p class="kicker">Why</p><p>Saving has already happened, so a button only adds an extra action. The field is limited to 120 characters, so one line is enough. <a href="#feedback">See the inline edit states</a></p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Trade-off · Gain</p><p>No extra action: saving has already happened when the user finishes the edit.</p></div>
-      <div><p class="kicker">Trade-off · Cost and risk</p><p>The CTO asked for a Save button, so users lose an explicit confirm step. A wrong edit is saved as soon as they leave the field.</p></div>
-      <div><p class="kicker">Trade-off · How I reduce it</p><p>The field shows Saving, then Saved, so users still see that it worked, and Esc cancels the edit before it is saved.</p></div>
+    <div class="dcards">
+    <article class="dcard">
+      <header><span class="dn">1</span><h4>4 steps or 6?</h4></header>
+      <dl>
+        <div><dt>Options</dt><dd><b>A.</b> Keep 4 steps with as few Next clicks as possible. <b>B.</b> Split into 6 steps, with one main action at a time.</dd></div>
+        <div class="pick"><dt>I chose</dt><dd><b>B, 6 steps.</b> Every screen should answer one question: "What decision do I need to make here?"</dd></div>
+        <div><dt>Why</dt><dd>New users froze when one step packed in too many fields and decisions. Fewer steps are not always easier. <a href="#proto">See the 4 to 6 mapping</a></dd></div>
+        <div><dt>Trade-off</dt><dd><ul><li><b>Gain:</b> fewer decisions on screen at once.</li><li><b>Cost:</b> more Next clicks and more screens, so the flow may feel longer.</li><li><b>Reduced by:</b> a clear goal for each step, a progress stepper, Next locked with a hint that names the problem, and autosave. Section 07 says how I will check it.</li></ul></dd></div>
+      </dl>
+    </article>
+    <article class="dcard">
+      <header><span class="dn">2</span><h4>Audience first, or ad copy first?</h4></header>
+      <dl>
+        <div><dt>Options</dt><dd><b>A.</b> Audience before Create Ad, as in my first 6-step version. <b>B.</b> Ad copy before Audience.</dd></div>
+        <div class="pick"><dt>I chose</dt><dd><b>B, ad copy first.</b></dd></div>
+        <div><dt>Why</dt><dd>The AI needs the ad copy to recommend a relevant audience. I found this while testing the HTML prototype, before drawing in Figma. <a href="#proto">See the step order</a></dd></div>
+        <div><dt>Trade-off</dt><dd><ul><li><b>Gain:</b> the AI pre-selects an audience and users adjust it, instead of starting from a blank list.</li><li><b>Cost:</b> someone who already knows who to reach cannot set the audience first, and if the copy changes later the recommendation may no longer fit.</li><li><b>Reduced by:</b> every audience tag can be edited, a one-sentence summary says who the ad will reach, and Back is available.</li></ul></dd></div>
+      </dl>
+    </article>
+    <article class="dcard">
+      <header><span class="dn">3</span><h4>A Save button, or autosave?</h4></header>
+      <dl>
+        <div><dt>Options</dt><dd><b>A.</b> A "Save" button after inline editing, as the CTO asked. <b>B.</b> Save automatically.</dd></div>
+        <div class="pick"><dt>I chose</dt><dd><b>B, autosave.</b> Enter or click outside saves (Saving, then Saved). Esc cancels. No Save button.</dd></div>
+        <div><dt>Why</dt><dd>Saving has already happened, so a button only adds an extra action. The field is limited to 120 characters, so one line is enough. <a href="#feedback">See the inline edit states</a></dd></div>
+        <div><dt>Trade-off</dt><dd><ul><li><b>Gain:</b> no extra action for the user.</li><li><b>Cost:</b> users lose an explicit confirm step, and a wrong edit is saved as soon as they leave the field.</li><li><b>Reduced by:</b> the field shows Saving, then Saved, and Esc cancels the edit before it is saved.</li></ul></dd></div>
+      </dl>
+    </article>
     </div>
   </div>
 </section>
@@ -461,34 +476,63 @@ html.stlock{overflow:hidden}
   </div>
   <div class="text">
     <h3>The problem in three parts</h3>
-    <p>Each part points to a different part of the solution, which is why the fix is not only "add more steps".</p>
+    <p>Each part points to a different part of the solution, so the fix is not only "add more steps".</p>
   </div>
   <div class="wide">
-    <div class="goals three">
-      <div class="goal"><i>1 · User problem</i><b>Beginners cannot set up a campaign on their own</b><p>Small business owners who have never run an ad do not know how to choose an audience or a budget, and each ad platform names the same thing differently. <b>Response:</b> AI recommends the audience, the budget screen offers three tiers, and users adjust instead of starting from zero.</p></div>
-      <div class="goal"><i>2 · Experience problem</i><b>The old flow asked for too many decisions at once</b><p>The 4-step flow put schedule, budget, platform settings and audience together, with many fields, buttons and decisions on one screen. <b>Response:</b> 6 main steps, one main decision at a time, and sub-steps that appear one after another (progressive disclosure).</p></div>
-      <div class="goal"><i>3 · Consequence</i><b>Key fields skipped or guessed, campaigns abandoned</b><p>Beginners <b>froze, guessed or skipped</b> key fields like audience and forecast. That led to wrong targeting, wasted budget or abandoned campaigns, and only one in three launched. <b>Response:</b> Next stays locked until the key fields are filled, and the hint names the exact problem (validation rules).</p></div>
+    <div class="dcards">
+    <article class="dcard">
+      <header><span class="dn">1</span><h4>User problem: beginners cannot set up a campaign on their own</h4></header>
+      <dl>
+        <div><dt>Problem</dt><dd>They do not know how to choose an audience or a budget, and each ad platform names the same thing differently.</dd></div>
+        <div class="pick"><dt>Response</dt><dd>AI recommends the audience, the budget screen offers three tiers, and users adjust instead of starting from zero.</dd></div>
+      </dl>
+    </article>
+    <article class="dcard">
+      <header><span class="dn">2</span><h4>Experience problem: the old flow asked for too many decisions at once</h4></header>
+      <dl>
+        <div><dt>Problem</dt><dd>The 4-step flow put schedule, budget, platform settings and audience together, with many fields, buttons and decisions on one screen.</dd></div>
+        <div class="pick"><dt>Response</dt><dd>6 main steps, one main decision at a time, and sub-steps that appear one after another (progressive disclosure).</dd></div>
+      </dl>
+    </article>
+    <article class="dcard">
+      <header><span class="dn">3</span><h4>Consequence: key fields skipped or guessed, campaigns abandoned</h4></header>
+      <dl>
+        <div><dt>Problem</dt><dd>Beginners froze, guessed or skipped key fields like audience and forecast. That led to wrong targeting, wasted budget or abandoned campaigns, and only one in three launched.</dd></div>
+        <div class="pick"><dt>Response</dt><dd>Next stays locked until the key fields are filled, and the hint names the exact problem (validation rules).</dd></div>
+      </dl>
+    </article>
     </div>
   </div>
   <div class="text">
     <h3>From evidence to design decision</h3>
-    <p>This is the same evidence as above, put in a chain: what I saw, what I took it to mean, and what I changed. It is not new research. The page gives no counts for these behaviors, so read them as observations, not measured rates.</p>
+    <p>The same evidence as above, as a chain: what I saw, what it meant, what I changed. These are observations, not measured rates, because the page has no counts for them.</p>
   </div>
   <div class="wide">
-    <div class="decision">
-      <div><p class="kicker">Evidence</p><p>Behavior tracking on the URL screen: users often clicked around two info cards, got distracted and lost focus on pasting a URL. Overall, users click things that only look like buttons.</p></div>
-      <div><p class="kicker">Insight</p><p>Elements that look interactive pull attention away from the one action the screen exists for.</p></div>
-      <div><p class="kicker">Design implication</p><p>Removed the cards. The screen keeps only the URL field and one question. Channel connection moved down to Launch.</p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Evidence</p><p>User interviews and behavior data: users stop because they do not know what the screen is asking. In the 4-step flow each step held many fields, buttons and decisions.</p></div>
-      <div><p class="kicker">Insight</p><p>Each step asked for too many decisions at once, so the problem was the load per step, not the number of steps.</p></div>
-      <div><p class="kicker">Design implication</p><p>Split into 6 steps. Every screen should answer one question: "What decision do I need to make here?"</p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Evidence</p><p>User interviews and behavior data: beginners froze, guessed or skipped audience and forecast. They lack the knowledge to choose an audience and a budget, and each platform has its own terms.</p></div>
-      <div><p class="kicker">Insight</p><p>They cannot set this up from a blank form. They need a starting point they can judge.</p></div>
-      <div><p class="kicker">Design implication</p><p>AI proposes the audience from the ad copy and website, and users check and adjust it. The budget screen suggests three tiers.</p></div>
+    <div class="dcards">
+    <article class="dcard">
+      <header><span class="dn">1</span><h4>The URL screen</h4></header>
+      <dl>
+        <div><dt>I saw</dt><dd>In behavior tracking, users often clicked around two info cards and lost focus on pasting a URL.</dd></div>
+        <div><dt>It meant</dt><dd>Anything that looks interactive distracts from the one action the screen exists for.</dd></div>
+        <div class="pick"><dt>I changed</dt><dd>Removed the cards. The screen keeps the URL field and one question.</dd></div>
+      </dl>
+    </article>
+    <article class="dcard">
+      <header><span class="dn">2</span><h4>Every step</h4></header>
+      <dl>
+        <div><dt>I saw</dt><dd>In interviews and behavior data, users stopped because they did not know what the screen asked. Each old step held many fields, buttons and decisions.</dd></div>
+        <div><dt>It meant</dt><dd>Each step asked for too many decisions at once. The problem was the load per step, not the number of steps.</dd></div>
+        <div class="pick"><dt>I changed</dt><dd>Split into 6 steps, each answering one question.</dd></div>
+      </dl>
+    </article>
+    <article class="dcard">
+      <header><span class="dn">3</span><h4>Audience and budget</h4></header>
+      <dl>
+        <div><dt>I saw</dt><dd>In interviews and behavior data, beginners froze, guessed or skipped audience and forecast. They lack the knowledge to choose an audience and a budget.</dd></div>
+        <div><dt>It meant</dt><dd>They cannot set this up from a blank form. They need a starting point they can judge.</dd></div>
+        <div class="pick"><dt>I changed</dt><dd>The AI recommends the audience from the ad copy and website, and users check and adjust it. The budget screen suggests three tiers.</dd></div>
+      </dl>
+    </article>
     </div>
   </div>
   <div class="text">

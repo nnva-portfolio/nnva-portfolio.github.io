@@ -126,6 +126,22 @@ figure{margin:0}
 .stage.new span{background:var(--accent);border-color:var(--accent);color:#fff}
 
 /* ITERATION */
+.dcards{display:grid;gap:20px;margin:28px 0}
+.dcard{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px 30px}
+.dcard header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.dcard .dn{flex:none;width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:700;font-size:14px}
+.dcard h4{margin:0;font-size:21px;line-height:1.25;letter-spacing:-.01em}
+.dcard dl{margin:0}
+.dcard dl>div{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:13px 0;border-top:1px solid var(--line)}
+.dcard dt{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.dcard dd{margin:0;font-size:15.5px;line-height:1.6}
+.dcard dd b{font-weight:650}
+.dcard dd ul{margin:0;padding-left:18px}
+.dcard dd li{margin:2px 0}
+.dcard .pick{background:color-mix(in srgb,var(--accent) 9%,transparent);margin:0 -14px;padding:13px 14px;border-radius:12px;border-top-color:transparent}
+.dcard .pick+div{border-top-color:transparent}
+.dcard .pick dt{color:var(--accent)}
+@media(max-width:640px){.dcard{padding:20px 18px}.dcard dl>div{grid-template-columns:1fr;gap:4px}.dcard .pick{margin:0 -8px;padding:12px 8px}}
 .decision{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:28px;overflow:hidden;margin:40px 0}
 .decision>div{padding:32px}
 .decision>div+div{border-left:1px solid var(--line)}
@@ -373,38 +389,37 @@ html.stlock{overflow:hidden}
   </div>
   <div class="text">
     <h3>3 quyết định định hình flow này</h3>
-    <p>Nếu chỉ có hai phút, hãy đọc ba quyết định này. Chúng cho thấy các lựa chọn là gì, mình chọn gì và vì sao. Phần còn lại của trang là đọc thêm: từng bước, edge case và state, và design system.</p>
+    <p>Ba lựa chọn đã định hình flow này. Mỗi lựa chọn cho thấy các phương án, mình chọn gì, vì sao, và cái giá phải trả. Phần còn lại của trang là đọc thêm: từng bước, edge case và state, và design system.</p>
   </div>
   <div class="wide">
-    <div class="decision">
-      <div><p class="kicker">Quyết định 1 · Lựa chọn</p><p>Giữ 4 bước với ít lần bấm Next nhất có thể, hoặc tách thành 6 main step, mỗi lúc một hành động chính.</p></div>
-      <div><p class="kicker">Mình chọn</p><p>6 bước. Mỗi màn hình phải trả lời được: "Mình đang quyết định điều gì ở đây?"</p></div>
-      <div><p class="kicker">Vì sao</p><p>Người mới bị đứng hình khi một bước nhồi quá nhiều trường và quyết định. Ít bước hơn chưa chắc dễ hơn. <a href="#proto">Xem cách 4 bước thành 6 bước</a></p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Đánh đổi · Được gì</p><p>Ít quyết định trên màn hình cùng lúc, nên người mới không phải cân nhắc mọi thứ cùng một lúc.</p></div>
-      <div><p class="kicker">Đánh đổi · Mất gì và rủi ro</p><p>Nhiều lần bấm Next hơn và tổng số màn hình tăng. Flow có thể cảm giác dài hơn, dù từng màn dễ hơn.</p></div>
-      <div><p class="kicker">Đánh đổi · Mình giảm rủi ro thế nào</p><p>Mỗi bước có mục tiêu rõ, stepper cho thấy tiến độ, Next bị khóa kèm gợi ý nói đúng lỗi, và thay đổi được tự lưu. Có hiệu quả hay không thì chưa biết. Mục 07 nói cách mình sẽ kiểm tra: thời gian đến lúc launch so với mốc 21,5 phút, và bước nào người dùng dừng lại.</p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Quyết định 2 · Lựa chọn</p><p>Ở bản 6 bước đầu tiên của mình, Audience nằm trước Create Ad.</p></div>
-      <div><p class="kicker">Mình chọn</p><p>Chuyển ad copy lên trước Audience.</p></div>
-      <div><p class="kicker">Vì sao</p><p>AI cần ad copy để gợi ý nên nhắm ai. Mình phát hiện điều này khi thử trên prototype HTML, trước khi vẽ Figma. <a href="#proto">Xem thứ tự các bước</a></p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Đánh đổi · Được gì</p><p>AI có ad copy để đọc, nên chọn sẵn được đối tượng và người dùng chỉ chỉnh thay vì bắt đầu từ một danh sách trống.</p></div>
-      <div><p class="kicker">Đánh đổi · Mất gì và rủi ro</p><p>Người đã biết mình muốn tiếp cận ai không thể đặt đối tượng trước. Nếu sau đó đổi copy, gợi ý của AI có thể không còn khớp.</p></div>
-      <div><p class="kicker">Đánh đổi · Mình giảm rủi ro thế nào</p><p>Mọi tag đối tượng đều sửa được, phần tóm tắt nói bằng một câu quảng cáo sẽ đến với ai, và có nút Back.</p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Quyết định 3 · Lựa chọn</p><p>CTO đề nghị có nút "Save" sau khi sửa inline.</p></div>
-      <div><p class="kicker">Mình chọn</p><p>Enter hoặc bấm ra ngoài là lưu (Saving rồi Saved), Esc để hủy. Không có nút Save.</p></div>
-      <div><p class="kicker">Vì sao</p><p>Việc lưu đã xảy ra rồi, nên thêm nút chỉ tạo thêm một thao tác. Trường bị giới hạn 120 ký tự nên một dòng là đủ. <a href="#feedback">Xem các state của inline edit</a></p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Đánh đổi · Được gì</p><p>Không thêm hành động: lúc người dùng sửa xong thì việc lưu đã xảy ra.</p></div>
-      <div><p class="kicker">Đánh đổi · Mất gì và rủi ro</p><p>CTO muốn có nút Save, nên người dùng mất bước xác nhận rõ ràng. Sửa sai cũng được lưu ngay khi rời khỏi ô.</p></div>
-      <div><p class="kicker">Đánh đổi · Mình giảm rủi ro thế nào</p><p>Ô hiện Saving rồi Saved, nên người dùng vẫn thấy là đã lưu, và Esc hủy chỉnh sửa trước khi lưu.</p></div>
+    <div class="dcards">
+    <article class="dcard">
+      <header><span class="dn">1</span><h4>4 bước hay 6 bước?</h4></header>
+      <dl>
+        <div><dt>Lựa chọn</dt><dd><b>A.</b> Giữ 4 bước, ít lần bấm Next nhất có thể. <b>B.</b> Tách thành 6 bước, mỗi lúc một hành động chính.</dd></div>
+        <div class="pick"><dt>Mình chọn</dt><dd><b>B, 6 bước.</b> Mỗi màn hình phải trả lời được một câu hỏi: "Mình cần quyết định gì ở đây?"</dd></div>
+        <div><dt>Vì sao</dt><dd>Người mới bị đứng hình khi một bước nhồi quá nhiều trường và quyết định. Ít bước hơn chưa chắc dễ hơn. <a href="#proto">Xem bản đồ 4 sang 6</a></dd></div>
+        <div><dt>Đánh đổi</dt><dd><ul><li><b>Được:</b> ít quyết định trên màn hình cùng lúc.</li><li><b>Mất:</b> nhiều lần bấm Next và nhiều màn hình hơn, nên flow có thể cảm giác dài hơn.</li><li><b>Giảm bằng:</b> mỗi bước có mục tiêu rõ, có stepper cho thấy tiến độ, Next bị khóa kèm gợi ý nói đúng lỗi, và tự lưu. Mục 07 nói cách mình sẽ kiểm tra.</li></ul></dd></div>
+      </dl>
+    </article>
+    <article class="dcard">
+      <header><span class="dn">2</span><h4>Audience trước hay ad copy trước?</h4></header>
+      <dl>
+        <div><dt>Lựa chọn</dt><dd><b>A.</b> Audience trước Create Ad, như bản 6 bước đầu tiên của mình. <b>B.</b> Ad copy trước Audience.</dd></div>
+        <div class="pick"><dt>Mình chọn</dt><dd><b>B, ad copy trước.</b></dd></div>
+        <div><dt>Vì sao</dt><dd>AI cần ad copy để đề xuất đối tượng phù hợp. Mình phát hiện điều này khi thử prototype HTML, trước khi vẽ trong Figma. <a href="#proto">Xem thứ tự các bước</a></dd></div>
+        <div><dt>Đánh đổi</dt><dd><ul><li><b>Được:</b> AI chọn sẵn đối tượng và người dùng chỉ chỉnh, thay vì bắt đầu từ danh sách trống.</li><li><b>Mất:</b> người đã biết mình muốn tiếp cận ai không thể đặt đối tượng trước, và nếu sau đó đổi copy thì đề xuất có thể không còn khớp.</li><li><b>Giảm bằng:</b> mọi tag đối tượng đều sửa được, một câu tóm tắt nói quảng cáo sẽ đến với ai, và có nút Back.</li></ul></dd></div>
+      </dl>
+    </article>
+    <article class="dcard">
+      <header><span class="dn">3</span><h4>Nút Save hay tự lưu?</h4></header>
+      <dl>
+        <div><dt>Lựa chọn</dt><dd><b>A.</b> Nút "Save" sau khi sửa inline, như CTO đề nghị. <b>B.</b> Tự động lưu.</dd></div>
+        <div class="pick"><dt>Mình chọn</dt><dd><b>B, tự lưu.</b> Enter hoặc bấm ra ngoài là lưu (Saving, rồi Saved). Esc để hủy. Không có nút Save.</dd></div>
+        <div><dt>Vì sao</dt><dd>Việc lưu đã xảy ra rồi, nên một nút chỉ thêm một hành động. Ô giới hạn 120 ký tự, nên một dòng là đủ. <a href="#feedback">Xem các state của inline edit</a></dd></div>
+        <div><dt>Đánh đổi</dt><dd><ul><li><b>Được:</b> không thêm hành động nào cho người dùng.</li><li><b>Mất:</b> người dùng mất một bước xác nhận rõ ràng, và sửa sai cũng được lưu ngay khi rời khỏi ô.</li><li><b>Giảm bằng:</b> ô hiện Saving rồi Saved, và Esc hủy chỉnh sửa trước khi lưu.</li></ul></dd></div>
+      </dl>
+    </article>
     </div>
   </div>
 </section>
@@ -464,31 +479,60 @@ html.stlock{overflow:hidden}
     <p>Mỗi phần dẫn đến một phần khác của giải pháp, nên cách giải không chỉ là "thêm bước".</p>
   </div>
   <div class="wide">
-    <div class="goals three">
-      <div class="goal"><i>1 · Vấn đề của người dùng</i><b>Người mới không tự thiết lập được campaign</b><p>Chủ doanh nghiệp nhỏ chưa từng chạy quảng cáo không biết cách chọn đối tượng và ngân sách, và mỗi nền tảng gọi cùng một thứ bằng một tên khác. <b>Cách giải:</b> AI gợi ý đối tượng, màn ngân sách đưa ra ba mức, người dùng chỉ chỉnh thay vì bắt đầu từ con số không.</p></div>
-      <div class="goal"><i>2 · Vấn đề trải nghiệm</i><b>Flow cũ đòi quyết định quá nhiều cùng lúc</b><p>Flow 4 bước gộp lịch, ngân sách, cài đặt nền tảng và đối tượng lại, với nhiều trường, nút và quyết định trên một màn hình. <b>Cách giải:</b> 6 main step, mỗi lúc một quyết định chính, và các sub-step hiện lần lượt từng cái (progressive disclosure).</p></div>
-      <div class="goal"><i>3 · Hệ quả</i><b>Bỏ qua hoặc điền bừa trường quan trọng, bỏ campaign giữa chừng</b><p>Người mới <b>đứng hình, điền bừa hoặc bỏ qua</b> các trường quan trọng như audience và forecast. Điều đó dẫn đến chạy sai đối tượng, lãng phí ngân sách hoặc bỏ giữa chừng, và chỉ một trong ba người launch. <b>Cách giải:</b> Next bị khóa cho đến khi điền đủ trường quan trọng, và gợi ý nói rõ lỗi cụ thể (validation).</p></div>
+    <div class="dcards">
+    <article class="dcard">
+      <header><span class="dn">1</span><h4>Vấn đề của người dùng: người mới không tự thiết lập được campaign</h4></header>
+      <dl>
+        <div><dt>Vấn đề</dt><dd>Họ không biết cách chọn đối tượng và ngân sách, và mỗi nền tảng quảng cáo gọi cùng một thứ bằng một tên khác.</dd></div>
+        <div class="pick"><dt>Cách giải</dt><dd>AI đề xuất đối tượng, màn ngân sách đưa ra ba mức, người dùng chỉ chỉnh thay vì bắt đầu từ con số không.</dd></div>
+      </dl>
+    </article>
+    <article class="dcard">
+      <header><span class="dn">2</span><h4>Vấn đề trải nghiệm: flow cũ đòi quyết định quá nhiều cùng lúc</h4></header>
+      <dl>
+        <div><dt>Vấn đề</dt><dd>Flow 4 bước gộp lịch, ngân sách, cài đặt nền tảng và đối tượng lại, với nhiều trường, nút và quyết định trên một màn hình.</dd></div>
+        <div class="pick"><dt>Cách giải</dt><dd>6 main step, mỗi lúc một quyết định chính, và các sub-step hiện lần lượt từng cái (progressive disclosure).</dd></div>
+      </dl>
+    </article>
+    <article class="dcard">
+      <header><span class="dn">3</span><h4>Hệ quả: bỏ qua hoặc điền bừa trường quan trọng, bỏ campaign giữa chừng</h4></header>
+      <dl>
+        <div><dt>Vấn đề</dt><dd>Người mới đứng hình, điền bừa hoặc bỏ qua các trường quan trọng như audience và forecast. Điều đó dẫn đến chạy sai đối tượng, lãng phí ngân sách hoặc bỏ giữa chừng, và chỉ một trong ba người launch.</dd></div>
+        <div class="pick"><dt>Cách giải</dt><dd>Next bị khóa cho đến khi điền đủ trường quan trọng, và gợi ý nói rõ lỗi cụ thể (validation rule).</dd></div>
+      </dl>
+    </article>
     </div>
   </div>
   <div class="text">
     <h3>Từ bằng chứng đến quyết định thiết kế</h3>
-    <p>Đây là chính những bằng chứng ở trên, xếp thành một chuỗi: mình thấy gì, hiểu ra điều gì và đã đổi gì. Đây không phải nghiên cứu mới. Trang không có số đếm cho các hành vi này, nên hãy đọc chúng như quan sát, không phải tỷ lệ đã đo.</p>
+    <p>Chính những bằng chứng ở trên, xếp thành chuỗi: mình thấy gì, nó có nghĩa gì, mình đã đổi gì. Đây là quan sát chứ không phải tỷ lệ đã đo, vì trang không có số đếm cho chúng.</p>
   </div>
   <div class="wide">
-    <div class="decision">
-      <div><p class="kicker">Bằng chứng</p><p>Theo dõi hành vi trên màn hình nhập URL: người dùng hay bấm quanh hai thẻ thông tin, bị phân tâm và mất tập trung khỏi việc dán URL. Nhìn chung, người dùng bấm vào những thứ chỉ trông giống nút.</p></div>
-      <div><p class="kicker">Insight</p><p>Những phần tử trông như bấm được kéo sự chú ý khỏi hành động duy nhất mà màn hình tồn tại để làm.</p></div>
-      <div><p class="kicker">Hệ quả cho thiết kế</p><p>Bỏ các thẻ. Màn hình chỉ giữ ô nhập URL và một câu hỏi. Việc kết nối kênh chuyển xuống bước Launch.</p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Bằng chứng</p><p>Phỏng vấn và dữ liệu hành vi: người dùng dừng lại vì không biết màn hình đang yêu cầu gì. Ở flow 4 bước, mỗi bước có nhiều trường, nút và quyết định.</p></div>
-      <div><p class="kicker">Insight</p><p>Mỗi bước đòi quá nhiều quyết định cùng lúc, nên vấn đề là tải của mỗi bước, không phải số bước.</p></div>
-      <div><p class="kicker">Hệ quả cho thiết kế</p><p>Tách thành 6 bước. Mỗi màn hình phải trả lời được: "Mình đang quyết định gì ở đây?"</p></div>
-    </div>
-    <div class="decision">
-      <div><p class="kicker">Bằng chứng</p><p>Phỏng vấn và dữ liệu hành vi: người mới đứng hình, điền bừa hoặc bỏ qua audience và forecast. Họ thiếu kiến thức để chọn đối tượng và ngân sách, và mỗi nền tảng một bộ thuật ngữ.</p></div>
-      <div><p class="kicker">Insight</p><p>Họ không thể thiết lập từ một biểu mẫu trống. Họ cần một điểm xuất phát để đánh giá.</p></div>
-      <div><p class="kicker">Hệ quả cho thiết kế</p><p>AI đề xuất đối tượng từ ad copy và website, người dùng kiểm tra và chỉnh. Màn ngân sách gợi ý ba mức.</p></div>
+    <div class="dcards">
+    <article class="dcard">
+      <header><span class="dn">1</span><h4>Màn hình URL</h4></header>
+      <dl>
+        <div><dt>Mình thấy</dt><dd>Qua theo dõi hành vi, người dùng hay bấm quanh hai thẻ thông tin và mất tập trung khỏi việc dán URL.</dd></div>
+        <div><dt>Nghĩa là</dt><dd>Thứ gì trông tương tác được đều làm xao nhãng khỏi hành động duy nhất mà màn hình tồn tại để làm.</dd></div>
+        <div class="pick"><dt>Mình đã đổi</dt><dd>Bỏ các thẻ. Màn hình chỉ giữ ô nhập URL và một câu hỏi.</dd></div>
+      </dl>
+    </article>
+    <article class="dcard">
+      <header><span class="dn">2</span><h4>Mọi bước</h4></header>
+      <dl>
+        <div><dt>Mình thấy</dt><dd>Qua phỏng vấn và dữ liệu hành vi, người dùng dừng lại vì không biết màn hình đang hỏi gì. Mỗi bước cũ có nhiều trường, nút và quyết định.</dd></div>
+        <div><dt>Nghĩa là</dt><dd>Mỗi bước đòi quá nhiều quyết định cùng lúc. Vấn đề là tải của mỗi bước, không phải số bước.</dd></div>
+        <div class="pick"><dt>Mình đã đổi</dt><dd>Tách thành 6 bước, mỗi bước trả lời một câu hỏi.</dd></div>
+      </dl>
+    </article>
+    <article class="dcard">
+      <header><span class="dn">3</span><h4>Đối tượng và ngân sách</h4></header>
+      <dl>
+        <div><dt>Mình thấy</dt><dd>Qua phỏng vấn và dữ liệu hành vi, người mới đứng hình, điền bừa hoặc bỏ qua audience và forecast. Họ thiếu kiến thức để chọn đối tượng và ngân sách.</dd></div>
+        <div><dt>Nghĩa là</dt><dd>Họ không thể thiết lập từ một biểu mẫu trống. Họ cần một điểm xuất phát để đánh giá.</dd></div>
+        <div class="pick"><dt>Mình đã đổi</dt><dd>AI đề xuất đối tượng từ ad copy và website, người dùng kiểm tra và chỉnh. Màn ngân sách gợi ý ba mức.</dd></div>
+      </dl>
+    </article>
     </div>
   </div>
   <div class="text">
