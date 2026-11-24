@@ -126,22 +126,6 @@ figure{margin:0}
 .stage.new span{background:var(--accent);border-color:var(--accent);color:#fff}
 
 /* ITERATION */
-.dcards{display:grid;gap:20px;margin:28px 0}
-.dcard{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px 30px}
-.dcard header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.dcard .dn{flex:none;width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:700;font-size:14px}
-.dcard h4{margin:0;font-size:21px;line-height:1.25;letter-spacing:-.01em}
-.dcard dl{margin:0}
-.dcard dl>div{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:13px 0;border-top:1px solid var(--line)}
-.dcard dt{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
-.dcard dd{margin:0;font-size:15.5px;line-height:1.6}
-.dcard dd b{font-weight:650}
-.dcard dd ul{margin:0;padding-left:18px}
-.dcard dd li{margin:2px 0}
-.dcard .pick{background:color-mix(in srgb,var(--accent) 9%,transparent);margin:0 -14px;padding:13px 14px;border-radius:12px;border-top-color:transparent}
-.dcard .pick+div{border-top-color:transparent}
-.dcard .pick dt{color:var(--accent)}
-@media(max-width:640px){.dcard{padding:20px 18px}.dcard dl>div{grid-template-columns:1fr;gap:4px}.dcard .pick{margin:0 -8px;padding:12px 8px}}
 .decision{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:28px;overflow:hidden;margin:40px 0}
 .decision>div{padding:32px}
 .decision>div+div{border-left:1px solid var(--line)}
@@ -442,63 +426,29 @@ html.stlock{overflow:hidden}
   </div>
   <div class="text">
     <h3>The problem in three parts</h3>
-    <p>Each part points to a different part of the solution, so the fix is not only "add more steps".</p>
+    <p>Each part needs a different answer, so the fix is not only "add more steps".</p>
   </div>
   <div class="wide">
-    <div class="dcards">
-    <article class="dcard">
-      <header><span class="dn">1</span><h4>User problem: beginners cannot set up a campaign on their own</h4></header>
-      <dl>
-        <div><dt>Problem</dt><dd>They do not know how to choose an audience or a budget, and each ad platform names the same thing differently.</dd></div>
-        <div class="pick"><dt>Response</dt><dd>AI recommends the audience, the budget screen offers three tiers, and users adjust instead of starting from zero.</dd></div>
-      </dl>
-    </article>
-    <article class="dcard">
-      <header><span class="dn">2</span><h4>Experience problem: the old flow asked for too many decisions at once</h4></header>
-      <dl>
-        <div><dt>Problem</dt><dd>The 4-step flow put schedule, budget, platform settings and audience together, with many fields, buttons and decisions on one screen.</dd></div>
-        <div class="pick"><dt>Response</dt><dd>6 main steps, one main decision at a time, and sub-steps that appear one after another (progressive disclosure).</dd></div>
-      </dl>
-    </article>
-    <article class="dcard">
-      <header><span class="dn">3</span><h4>Consequence: key fields skipped or guessed, campaigns abandoned</h4></header>
-      <dl>
-        <div><dt>Problem</dt><dd>Beginners froze, guessed or skipped key fields like audience and forecast. That led to wrong targeting, wasted budget or abandoned campaigns, and only one in three launched.</dd></div>
-        <div class="pick"><dt>Response</dt><dd>Next stays locked until the key fields are filled, and the hint names the exact problem (validation rules).</dd></div>
-      </dl>
-    </article>
+    <div class="goals three">
+      <div class="goal"><i>User problem</i><b>Beginners cannot set up a campaign alone</b><p>They do not know how to choose an audience or a budget, and each ad platform names the same thing differently. My answer: the AI recommends the audience and the budget screen offers three tiers.</p></div>
+      <div class="goal"><i>Experience problem</i><b>The old flow asked too much at once</b><p>Schedule, budget, platform settings and audience sat together, with many fields, buttons and decisions on one screen. My answer: 6 main steps, one main decision at a time.</p></div>
+      <div class="goal"><i>Consequence</i><b>Key fields skipped or guessed</b><p>Beginners froze, guessed or skipped audience and forecast. That led to wrong targeting, wasted budget or abandoned campaigns, and only one in three launched. My answer: Next stays locked until the key fields are valid.</p></div>
     </div>
   </div>
   <div class="text">
     <h3>From evidence to design decision</h3>
-    <p>The same evidence as above, as a chain: what I saw, what it meant, what I changed. These are observations, not measured rates, because the page has no counts for them.</p>
+    <p>The same evidence as above, as a chain. These are observations, not measured rates, because the page has no counts for them.</p>
   </div>
   <div class="wide">
-    <div class="dcards">
-    <article class="dcard">
-      <header><span class="dn">1</span><h4>The URL screen</h4></header>
-      <dl>
-        <div><dt>I saw</dt><dd>In behavior tracking, users often clicked around two info cards and lost focus on pasting a URL.</dd></div>
-        <div><dt>It meant</dt><dd>Anything that looks interactive distracts from the one action the screen exists for.</dd></div>
-        <div class="pick"><dt>I changed</dt><dd>Removed the cards. The screen keeps the URL field and one question.</dd></div>
-      </dl>
-    </article>
-    <article class="dcard">
-      <header><span class="dn">2</span><h4>Every step</h4></header>
-      <dl>
-        <div><dt>I saw</dt><dd>In interviews and behavior data, users stopped because they did not know what the screen asked. Each old step held many fields, buttons and decisions.</dd></div>
-        <div><dt>It meant</dt><dd>Each step asked for too many decisions at once. The problem was the load per step, not the number of steps.</dd></div>
-        <div class="pick"><dt>I changed</dt><dd>Split into 6 steps, each answering one question.</dd></div>
-      </dl>
-    </article>
-    <article class="dcard">
-      <header><span class="dn">3</span><h4>Audience and budget</h4></header>
-      <dl>
-        <div><dt>I saw</dt><dd>In interviews and behavior data, beginners froze, guessed or skipped audience and forecast. They lack the knowledge to choose an audience and a budget.</dd></div>
-        <div><dt>It meant</dt><dd>They cannot set this up from a blank form. They need a starting point they can judge.</dd></div>
-        <div class="pick"><dt>I changed</dt><dd>The AI recommends the audience from the ad copy and website, and users check and adjust it. The budget screen suggests three tiers.</dd></div>
-      </dl>
-    </article>
+    <div class="tablebox static">
+      <table>
+        <thead><tr><th>Where</th><th>What I saw</th><th>What it meant</th><th>What I changed</th></tr></thead>
+        <tbody>
+          <tr><td>URL screen</td><td>In behavior tracking, users often clicked around two info cards and lost focus on pasting a URL.</td><td>Anything that looks interactive distracts from the one action the screen exists for.</td><td>Removed the cards. The screen keeps the URL field and one question.</td></tr>
+          <tr><td>Every step</td><td>In interviews and behavior data, users stopped because they did not know what the screen asked. Each old step held many fields, buttons and decisions.</td><td>The load per step was the problem, not the number of steps.</td><td>Split into 6 steps, each answering one question.</td></tr>
+          <tr><td>Audience and budget</td><td>In interviews and behavior data, beginners froze, guessed or skipped audience and forecast. They lack the knowledge to choose an audience and a budget.</td><td>They cannot set this up from a blank form. They need a starting point they can judge.</td><td>The AI recommends the audience from the ad copy and website, and users check and adjust it. The budget screen suggests three tiers.</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
   <div class="text">
@@ -914,7 +864,7 @@ var h=[].map.call(t.querySelectorAll('thead th'),function(x){return x.textConten
 </script>
 <script>
 (function(){[].forEach.call(document.querySelectorAll('.tablebox'),function(box){
-var t=box.querySelector('table');if(!t)return;var rows=[].slice.call(t.querySelectorAll('tbody tr'));if(rows.length<2)return;
+if(box.classList.contains('static'))return;var t=box.querySelector('table');if(!t)return;var rows=[].slice.call(t.querySelectorAll('tbody tr'));if(rows.length<2)return;
 var th=t.querySelector('thead th'),bar=document.createElement('div');bar.className='ttabs';bar.setAttribute('role','tablist');
 var lab=document.createElement('span');lab.textContent=th?th.textContent:'';bar.appendChild(lab);
 function pick(i){rows.forEach(function(r,j){r.classList.toggle('on',i===j)});[].forEach.call(bar.querySelectorAll('button'),function(b,j){b.classList.toggle('on',i===j);b.setAttribute('aria-selected',i===j)})}

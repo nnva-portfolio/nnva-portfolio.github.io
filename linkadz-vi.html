@@ -126,22 +126,6 @@ figure{margin:0}
 .stage.new span{background:var(--accent);border-color:var(--accent);color:#fff}
 
 /* ITERATION */
-.dcards{display:grid;gap:20px;margin:28px 0}
-.dcard{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px 30px}
-.dcard header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.dcard .dn{flex:none;width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:700;font-size:14px}
-.dcard h4{margin:0;font-size:21px;line-height:1.25;letter-spacing:-.01em}
-.dcard dl{margin:0}
-.dcard dl>div{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:13px 0;border-top:1px solid var(--line)}
-.dcard dt{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
-.dcard dd{margin:0;font-size:15.5px;line-height:1.6}
-.dcard dd b{font-weight:650}
-.dcard dd ul{margin:0;padding-left:18px}
-.dcard dd li{margin:2px 0}
-.dcard .pick{background:color-mix(in srgb,var(--accent) 9%,transparent);margin:0 -14px;padding:13px 14px;border-radius:12px;border-top-color:transparent}
-.dcard .pick+div{border-top-color:transparent}
-.dcard .pick dt{color:var(--accent)}
-@media(max-width:640px){.dcard{padding:20px 18px}.dcard dl>div{grid-template-columns:1fr;gap:4px}.dcard .pick{margin:0 -8px;padding:12px 8px}}
 .decision{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:28px;overflow:hidden;margin:40px 0}
 .decision>div{padding:32px}
 .decision>div+div{border-left:1px solid var(--line)}
@@ -442,63 +426,29 @@ html.stlock{overflow:hidden}
   </div>
   <div class="text">
     <h3>Vấn đề gồm ba phần</h3>
-    <p>Mỗi phần dẫn đến một phần khác của giải pháp, nên cách giải không chỉ là "thêm bước".</p>
+    <p>Mỗi phần cần một câu trả lời khác nhau, nên cách giải không chỉ là "thêm bước".</p>
   </div>
   <div class="wide">
-    <div class="dcards">
-    <article class="dcard">
-      <header><span class="dn">1</span><h4>Vấn đề của người dùng: người mới không tự thiết lập được campaign</h4></header>
-      <dl>
-        <div><dt>Vấn đề</dt><dd>Họ không biết cách chọn đối tượng và ngân sách, và mỗi nền tảng quảng cáo gọi cùng một thứ bằng một tên khác.</dd></div>
-        <div class="pick"><dt>Cách giải</dt><dd>AI đề xuất đối tượng, màn ngân sách đưa ra ba mức, người dùng chỉ chỉnh thay vì bắt đầu từ con số không.</dd></div>
-      </dl>
-    </article>
-    <article class="dcard">
-      <header><span class="dn">2</span><h4>Vấn đề trải nghiệm: flow cũ đòi quyết định quá nhiều cùng lúc</h4></header>
-      <dl>
-        <div><dt>Vấn đề</dt><dd>Flow 4 bước gộp lịch, ngân sách, cài đặt nền tảng và đối tượng lại, với nhiều trường, nút và quyết định trên một màn hình.</dd></div>
-        <div class="pick"><dt>Cách giải</dt><dd>6 main step, mỗi lúc một quyết định chính, và các sub-step hiện lần lượt từng cái (progressive disclosure).</dd></div>
-      </dl>
-    </article>
-    <article class="dcard">
-      <header><span class="dn">3</span><h4>Hệ quả: bỏ qua hoặc điền bừa trường quan trọng, bỏ campaign giữa chừng</h4></header>
-      <dl>
-        <div><dt>Vấn đề</dt><dd>Người mới đứng hình, điền bừa hoặc bỏ qua các trường quan trọng như audience và forecast. Điều đó dẫn đến chạy sai đối tượng, lãng phí ngân sách hoặc bỏ giữa chừng, và chỉ một trong ba người launch.</dd></div>
-        <div class="pick"><dt>Cách giải</dt><dd>Next bị khóa cho đến khi điền đủ trường quan trọng, và gợi ý nói rõ lỗi cụ thể (validation rule).</dd></div>
-      </dl>
-    </article>
+    <div class="goals three">
+      <div class="goal"><i>Vấn đề của người dùng</i><b>Người mới không tự thiết lập được campaign</b><p>Họ không biết cách chọn đối tượng và ngân sách, và mỗi nền tảng quảng cáo gọi cùng một thứ bằng một tên khác. Mình trả lời: AI đề xuất đối tượng và màn ngân sách đưa ra ba mức.</p></div>
+      <div class="goal"><i>Vấn đề trải nghiệm</i><b>Flow cũ đòi quá nhiều cùng lúc</b><p>Lịch, ngân sách, cài đặt nền tảng và đối tượng nằm chung, với nhiều trường, nút và quyết định trên một màn hình. Mình trả lời: 6 main step, mỗi lúc một quyết định chính.</p></div>
+      <div class="goal"><i>Hệ quả</i><b>Bỏ qua hoặc điền bừa trường quan trọng</b><p>Người mới đứng hình, điền bừa hoặc bỏ qua audience và forecast. Điều đó dẫn đến chạy sai đối tượng, lãng phí ngân sách hoặc bỏ giữa chừng, và chỉ một trong ba người launch. Mình trả lời: Next bị khóa cho đến khi các trường quan trọng hợp lệ.</p></div>
     </div>
   </div>
   <div class="text">
     <h3>Từ bằng chứng đến quyết định thiết kế</h3>
-    <p>Chính những bằng chứng ở trên, xếp thành chuỗi: mình thấy gì, nó có nghĩa gì, mình đã đổi gì. Đây là quan sát chứ không phải tỷ lệ đã đo, vì trang không có số đếm cho chúng.</p>
+    <p>Chính những bằng chứng ở trên, xếp thành chuỗi. Đây là quan sát chứ không phải tỷ lệ đã đo, vì trang không có số đếm cho chúng.</p>
   </div>
   <div class="wide">
-    <div class="dcards">
-    <article class="dcard">
-      <header><span class="dn">1</span><h4>Màn hình URL</h4></header>
-      <dl>
-        <div><dt>Mình thấy</dt><dd>Qua theo dõi hành vi, người dùng hay bấm quanh hai thẻ thông tin và mất tập trung khỏi việc dán URL.</dd></div>
-        <div><dt>Nghĩa là</dt><dd>Thứ gì trông tương tác được đều làm xao nhãng khỏi hành động duy nhất mà màn hình tồn tại để làm.</dd></div>
-        <div class="pick"><dt>Mình đã đổi</dt><dd>Bỏ các thẻ. Màn hình chỉ giữ ô nhập URL và một câu hỏi.</dd></div>
-      </dl>
-    </article>
-    <article class="dcard">
-      <header><span class="dn">2</span><h4>Mọi bước</h4></header>
-      <dl>
-        <div><dt>Mình thấy</dt><dd>Qua phỏng vấn và dữ liệu hành vi, người dùng dừng lại vì không biết màn hình đang hỏi gì. Mỗi bước cũ có nhiều trường, nút và quyết định.</dd></div>
-        <div><dt>Nghĩa là</dt><dd>Mỗi bước đòi quá nhiều quyết định cùng lúc. Vấn đề là tải của mỗi bước, không phải số bước.</dd></div>
-        <div class="pick"><dt>Mình đã đổi</dt><dd>Tách thành 6 bước, mỗi bước trả lời một câu hỏi.</dd></div>
-      </dl>
-    </article>
-    <article class="dcard">
-      <header><span class="dn">3</span><h4>Đối tượng và ngân sách</h4></header>
-      <dl>
-        <div><dt>Mình thấy</dt><dd>Qua phỏng vấn và dữ liệu hành vi, người mới đứng hình, điền bừa hoặc bỏ qua audience và forecast. Họ thiếu kiến thức để chọn đối tượng và ngân sách.</dd></div>
-        <div><dt>Nghĩa là</dt><dd>Họ không thể thiết lập từ một biểu mẫu trống. Họ cần một điểm xuất phát để đánh giá.</dd></div>
-        <div class="pick"><dt>Mình đã đổi</dt><dd>AI đề xuất đối tượng từ ad copy và website, người dùng kiểm tra và chỉnh. Màn ngân sách gợi ý ba mức.</dd></div>
-      </dl>
-    </article>
+    <div class="tablebox static">
+      <table>
+        <thead><tr><th>Ở đâu</th><th>Mình thấy</th><th>Nghĩa là</th><th>Mình đã đổi</th></tr></thead>
+        <tbody>
+          <tr><td>Màn hình URL</td><td>Qua theo dõi hành vi, người dùng hay bấm quanh hai thẻ thông tin và mất tập trung khỏi việc dán URL.</td><td>Thứ gì trông tương tác được đều làm xao nhãng khỏi hành động duy nhất mà màn hình tồn tại để làm.</td><td>Bỏ các thẻ. Màn hình chỉ giữ ô nhập URL và một câu hỏi.</td></tr>
+          <tr><td>Mọi bước</td><td>Qua phỏng vấn và dữ liệu hành vi, người dùng dừng lại vì không biết màn hình đang hỏi gì. Mỗi bước cũ có nhiều trường, nút và quyết định.</td><td>Vấn đề là tải của mỗi bước, không phải số bước.</td><td>Tách thành 6 bước, mỗi bước trả lời một câu hỏi.</td></tr>
+          <tr><td>Đối tượng và ngân sách</td><td>Qua phỏng vấn và dữ liệu hành vi, người mới đứng hình, điền bừa hoặc bỏ qua audience và forecast. Họ thiếu kiến thức để chọn đối tượng và ngân sách.</td><td>Họ không thể thiết lập từ một biểu mẫu trống. Họ cần một điểm xuất phát để đánh giá.</td><td>AI đề xuất đối tượng từ ad copy và website, người dùng kiểm tra và chỉnh. Màn ngân sách gợi ý ba mức.</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
   <div class="text">
@@ -914,7 +864,7 @@ var h=[].map.call(t.querySelectorAll('thead th'),function(x){return x.textConten
 </script>
 <script>
 (function(){[].forEach.call(document.querySelectorAll('.tablebox'),function(box){
-var t=box.querySelector('table');if(!t)return;var rows=[].slice.call(t.querySelectorAll('tbody tr'));if(rows.length<2)return;
+if(box.classList.contains('static'))return;var t=box.querySelector('table');if(!t)return;var rows=[].slice.call(t.querySelectorAll('tbody tr'));if(rows.length<2)return;
 var th=t.querySelector('thead th'),bar=document.createElement('div');bar.className='ttabs';bar.setAttribute('role','tablist');
 var lab=document.createElement('span');lab.textContent=th?th.textContent:'';bar.appendChild(lab);
 function pick(i){rows.forEach(function(r,j){r.classList.toggle('on',i===j)});[].forEach.call(bar.querySelectorAll('button'),function(b,j){b.classList.toggle('on',i===j);b.setAttribute('aria-selected',i===j)})}
