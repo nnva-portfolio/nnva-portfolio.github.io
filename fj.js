@@ -44,7 +44,7 @@
   var tr=el('<div class="fj-bar tr"></div>');
   var lang=d.querySelector('nav.top .lang'),mode=d.getElementById('theme');
   if(lang)tr.appendChild(lang);if(mode)tr.appendChild(mode);
-  tr.appendChild(el('<a class="fj-cta" href="'+home+'#connect">'+(vi?'liên hệ':'say hi')+'</a>'));
+  tr.appendChild(el('<a class="fj-cta" href="'+home+'#connect">'+(vi?'liên hệ':'get in touch')+'</a>'));
   d.body.appendChild(tr);
 
   /* bottom toolbar from the on-this-page list */
