@@ -360,6 +360,27 @@ html.stlock{overflow:hidden}
       <div class="goal"><i>Result</i><b>Shipped 28 Oct 2026, measuring now</b><p>Baseline to beat: 33% of users who start launch their first campaign, median 21.5 min (4-step flow). Post-launch data is not enough to draw conclusions yet. How I measure it is in section 07.</p></div>
     </div>
   </div>
+  <div class="text">
+    <h3>The 3 decisions that shaped the flow</h3>
+    <p>If you only have two minutes, read these three. They show what the options were, what I chose and why. The rest of the page is further reading: every step, edge cases and states, and the design system.</p>
+  </div>
+  <div class="wide">
+    <div class="decision">
+      <div><p class="kicker">Decision 1 · Options</p><p>Keep 4 steps with as few Next clicks as possible, or split into 6 steps with one main action each.</p></div>
+      <div><p class="kicker">My decision</p><p>6 steps. Every screen has to answer: "What am I deciding here?"</p></div>
+      <div><p class="kicker">Why</p><p>New users froze when one step packed in too many fields and decisions. Fewer steps are not always easier. <a href="#proto">See the 4 to 6 mapping</a></p></div>
+    </div>
+    <div class="decision">
+      <div><p class="kicker">Decision 2 · Options</p><p>In my first 6-step version, Audience came before Create Ad.</p></div>
+      <div><p class="kicker">My decision</p><p>Move ad copy before Audience.</p></div>
+      <div><p class="kicker">Why</p><p>The AI needs the ad copy to suggest who to target. I found this while testing the HTML prototype, before drawing in Figma. <a href="#proto">See the step order</a></p></div>
+    </div>
+    <div class="decision">
+      <div><p class="kicker">Decision 3 · Options</p><p>The CTO asked for a "Save" button after inline editing.</p></div>
+      <div><p class="kicker">My decision</p><p>Enter or click outside saves (Saving, then Saved), Esc cancels. No Save button.</p></div>
+      <div><p class="kicker">Why</p><p>Saving has already happened, so a button only adds an extra action. The field is limited to 120 characters, so one line is enough. <a href="#feedback">See the inline edit states</a></p></div>
+    </div>
+  </div>
 </section>
 
 <section id="discover">

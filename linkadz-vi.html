@@ -360,6 +360,27 @@ html.stlock{overflow:hidden}
       <div class="goal"><i>Kết quả</i><b>Đã ra mắt 28/10/2026, đang đo</b><p>Mốc cần vượt: 33% người bắt đầu tạo campaign đầu tiên launch được, thời gian trung vị 21,5 phút (flow 4 bước). Dữ liệu sau ra mắt chưa đủ để kết luận. Cách đo nằm ở mục 07.</p></div>
     </div>
   </div>
+  <div class="text">
+    <h3>3 quyết định định hình flow này</h3>
+    <p>Nếu chỉ có hai phút, hãy đọc ba quyết định này. Chúng cho thấy các lựa chọn là gì, mình chọn gì và vì sao. Phần còn lại của trang là đọc thêm: từng bước, edge case và state, và design system.</p>
+  </div>
+  <div class="wide">
+    <div class="decision">
+      <div><p class="kicker">Quyết định 1 · Lựa chọn</p><p>Giữ 4 bước với ít lần bấm Next nhất có thể, hoặc tách thành 6 bước, mỗi bước một hành động chính.</p></div>
+      <div><p class="kicker">Mình chọn</p><p>6 bước. Mỗi màn hình phải trả lời được: "Mình đang quyết định điều gì ở đây?"</p></div>
+      <div><p class="kicker">Vì sao</p><p>Người mới bị đứng hình khi một bước nhồi quá nhiều trường và quyết định. Ít bước hơn chưa chắc dễ hơn. <a href="#proto">Xem cách 4 bước thành 6 bước</a></p></div>
+    </div>
+    <div class="decision">
+      <div><p class="kicker">Quyết định 2 · Lựa chọn</p><p>Ở bản 6 bước đầu tiên của mình, Audience nằm trước Create Ad.</p></div>
+      <div><p class="kicker">Mình chọn</p><p>Chuyển ad copy lên trước Audience.</p></div>
+      <div><p class="kicker">Vì sao</p><p>AI cần ad copy để gợi ý nên nhắm ai. Mình phát hiện điều này khi thử trên prototype HTML, trước khi vẽ Figma. <a href="#proto">Xem thứ tự các bước</a></p></div>
+    </div>
+    <div class="decision">
+      <div><p class="kicker">Quyết định 3 · Lựa chọn</p><p>CTO đề nghị có nút "Save" sau khi sửa inline.</p></div>
+      <div><p class="kicker">Mình chọn</p><p>Enter hoặc bấm ra ngoài là lưu (Saving rồi Saved), Esc để hủy. Không có nút Save.</p></div>
+      <div><p class="kicker">Vì sao</p><p>Việc lưu đã xảy ra rồi, nên thêm nút chỉ tạo thêm một thao tác. Trường bị giới hạn 120 ký tự nên một dòng là đủ. <a href="#feedback">Xem các state của inline edit</a></p></div>
+    </div>
+  </div>
 </section>
 
 <section id="discover">
