@@ -387,41 +387,6 @@ html.stlock{overflow:hidden}
       <div class="goal"><i>Input I received</i><b>Interviews and feedback</b><p>The Korea-based team conducted the user interviews, and the CTO sent the feedback to Vietnam. The CTO, the Director and the FE developer gave feedback on each version. I did not run the interviews.</p></div>
     </div>
   </div>
-  <div class="text">
-    <h3>The 3 decisions that shaped the flow</h3>
-    <p>Three choices shaped this flow. Each one shows the options, what I chose, why, and what it costs. The rest of the page is further reading: every step, edge cases and states, and the design system.</p>
-  </div>
-  <div class="wide">
-    <div class="dcards">
-    <article class="dcard">
-      <header><span class="dn">1</span><h4>4 steps or 6?</h4></header>
-      <dl>
-        <div><dt>Options</dt><dd><b>A.</b> Keep 4 steps with as few Next clicks as possible. <b>B.</b> Split into 6 steps, with one main action at a time.</dd></div>
-        <div class="pick"><dt>I chose</dt><dd><b>B, 6 steps.</b> Every screen should answer one question: "What decision do I need to make here?"</dd></div>
-        <div><dt>Why</dt><dd>New users froze when one step packed in too many fields and decisions. Fewer steps are not always easier. <a href="#proto">See the 4 to 6 mapping</a></dd></div>
-        <div><dt>Trade-off</dt><dd><ul><li><b>Gain:</b> fewer decisions on screen at once.</li><li><b>Cost:</b> more Next clicks and more screens, so the flow may feel longer.</li><li><b>Reduced by:</b> a clear goal for each step, a progress stepper, Next locked with a hint that names the problem, and autosave. Section 07 says how I will check it.</li></ul></dd></div>
-      </dl>
-    </article>
-    <article class="dcard">
-      <header><span class="dn">2</span><h4>Audience first, or ad copy first?</h4></header>
-      <dl>
-        <div><dt>Options</dt><dd><b>A.</b> Audience before Create Ad, as in my first 6-step version. <b>B.</b> Ad copy before Audience.</dd></div>
-        <div class="pick"><dt>I chose</dt><dd><b>B, ad copy first.</b></dd></div>
-        <div><dt>Why</dt><dd>The AI needs the ad copy to recommend a relevant audience. I found this while testing the HTML prototype, before drawing in Figma. <a href="#proto">See the step order</a></dd></div>
-        <div><dt>Trade-off</dt><dd><ul><li><b>Gain:</b> the AI pre-selects an audience and users adjust it, instead of starting from a blank list.</li><li><b>Cost:</b> someone who already knows who to reach cannot set the audience first, and if the copy changes later the recommendation may no longer fit.</li><li><b>Reduced by:</b> every audience tag can be edited, a one-sentence summary says who the ad will reach, and Back is available.</li></ul></dd></div>
-      </dl>
-    </article>
-    <article class="dcard">
-      <header><span class="dn">3</span><h4>A Save button, or autosave?</h4></header>
-      <dl>
-        <div><dt>Options</dt><dd><b>A.</b> A "Save" button after inline editing, as the CTO asked. <b>B.</b> Save automatically.</dd></div>
-        <div class="pick"><dt>I chose</dt><dd><b>B, autosave.</b> Enter or click outside saves (Saving, then Saved). Esc cancels. No Save button.</dd></div>
-        <div><dt>Why</dt><dd>Saving has already happened, so a button only adds an extra action. The field is limited to 120 characters, so one line is enough. <a href="#feedback">See the inline edit states</a></dd></div>
-        <div><dt>Trade-off</dt><dd><ul><li><b>Gain:</b> no extra action for the user.</li><li><b>Cost:</b> users lose an explicit confirm step, and a wrong edit is saved as soon as they leave the field.</li><li><b>Reduced by:</b> the field shows Saving, then Saved, and Esc cancels the edit before it is saved.</li></ul></dd></div>
-      </dl>
-    </article>
-    </div>
-  </div>
 </section>
 
 <section id="discover">

@@ -387,41 +387,6 @@ html.stlock{overflow:hidden}
       <div class="goal"><i>Đầu vào mình nhận</i><b>Phỏng vấn và góp ý</b><p>Team Hàn Quốc chạy phỏng vấn người dùng, CTO gửi phản hồi về Việt Nam. CTO, Director và FE developer góp ý cho từng phiên bản. Mình không trực tiếp chạy phỏng vấn.</p></div>
     </div>
   </div>
-  <div class="text">
-    <h3>3 quyết định định hình flow này</h3>
-    <p>Ba lựa chọn đã định hình flow này. Mỗi lựa chọn cho thấy các phương án, mình chọn gì, vì sao, và cái giá phải trả. Phần còn lại của trang là đọc thêm: từng bước, edge case và state, và design system.</p>
-  </div>
-  <div class="wide">
-    <div class="dcards">
-    <article class="dcard">
-      <header><span class="dn">1</span><h4>4 bước hay 6 bước?</h4></header>
-      <dl>
-        <div><dt>Lựa chọn</dt><dd><b>A.</b> Giữ 4 bước, ít lần bấm Next nhất có thể. <b>B.</b> Tách thành 6 bước, mỗi lúc một hành động chính.</dd></div>
-        <div class="pick"><dt>Mình chọn</dt><dd><b>B, 6 bước.</b> Mỗi màn hình phải trả lời được một câu hỏi: "Mình cần quyết định gì ở đây?"</dd></div>
-        <div><dt>Vì sao</dt><dd>Người mới bị đứng hình khi một bước nhồi quá nhiều trường và quyết định. Ít bước hơn chưa chắc dễ hơn. <a href="#proto">Xem bản đồ 4 sang 6</a></dd></div>
-        <div><dt>Đánh đổi</dt><dd><ul><li><b>Được:</b> ít quyết định trên màn hình cùng lúc.</li><li><b>Mất:</b> nhiều lần bấm Next và nhiều màn hình hơn, nên flow có thể cảm giác dài hơn.</li><li><b>Giảm bằng:</b> mỗi bước có mục tiêu rõ, có stepper cho thấy tiến độ, Next bị khóa kèm gợi ý nói đúng lỗi, và tự lưu. Mục 07 nói cách mình sẽ kiểm tra.</li></ul></dd></div>
-      </dl>
-    </article>
-    <article class="dcard">
-      <header><span class="dn">2</span><h4>Audience trước hay ad copy trước?</h4></header>
-      <dl>
-        <div><dt>Lựa chọn</dt><dd><b>A.</b> Audience trước Create Ad, như bản 6 bước đầu tiên của mình. <b>B.</b> Ad copy trước Audience.</dd></div>
-        <div class="pick"><dt>Mình chọn</dt><dd><b>B, ad copy trước.</b></dd></div>
-        <div><dt>Vì sao</dt><dd>AI cần ad copy để đề xuất đối tượng phù hợp. Mình phát hiện điều này khi thử prototype HTML, trước khi vẽ trong Figma. <a href="#proto">Xem thứ tự các bước</a></dd></div>
-        <div><dt>Đánh đổi</dt><dd><ul><li><b>Được:</b> AI chọn sẵn đối tượng và người dùng chỉ chỉnh, thay vì bắt đầu từ danh sách trống.</li><li><b>Mất:</b> người đã biết mình muốn tiếp cận ai không thể đặt đối tượng trước, và nếu sau đó đổi copy thì đề xuất có thể không còn khớp.</li><li><b>Giảm bằng:</b> mọi tag đối tượng đều sửa được, một câu tóm tắt nói quảng cáo sẽ đến với ai, và có nút Back.</li></ul></dd></div>
-      </dl>
-    </article>
-    <article class="dcard">
-      <header><span class="dn">3</span><h4>Nút Save hay tự lưu?</h4></header>
-      <dl>
-        <div><dt>Lựa chọn</dt><dd><b>A.</b> Nút "Save" sau khi sửa inline, như CTO đề nghị. <b>B.</b> Tự động lưu.</dd></div>
-        <div class="pick"><dt>Mình chọn</dt><dd><b>B, tự lưu.</b> Enter hoặc bấm ra ngoài là lưu (Saving, rồi Saved). Esc để hủy. Không có nút Save.</dd></div>
-        <div><dt>Vì sao</dt><dd>Việc lưu đã xảy ra rồi, nên một nút chỉ thêm một hành động. Ô giới hạn 120 ký tự, nên một dòng là đủ. <a href="#feedback">Xem các state của inline edit</a></dd></div>
-        <div><dt>Đánh đổi</dt><dd><ul><li><b>Được:</b> không thêm hành động nào cho người dùng.</li><li><b>Mất:</b> người dùng mất một bước xác nhận rõ ràng, và sửa sai cũng được lưu ngay khi rời khỏi ô.</li><li><b>Giảm bằng:</b> ô hiện Saving rồi Saved, và Esc hủy chỉnh sửa trước khi lưu.</li></ul></dd></div>
-      </dl>
-    </article>
-    </div>
-  </div>
 </section>
 
 <section id="discover">
